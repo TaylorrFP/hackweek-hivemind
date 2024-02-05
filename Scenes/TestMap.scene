@@ -760,6 +760,7 @@
       "Components": [
         {
           "__type": "GameNetworkManager",
+          "playerControllers": [],
           "playerPawn": {
             "_type": "component",
             "go": "24e45c6b-7bb7-438e-8e42-1cb46ab12283",
@@ -801,7 +802,7 @@
           },
           "AirControl": 0.1,
           "CrouchSpeed": 90,
-          "GroundControl": 4,
+          "GroundControl": 2.5,
           "JumpForce": 400,
           "MaxForce": 50,
           "pawnCamera": {
@@ -1055,6 +1056,6 @@
   },
   "Title": "testmap",
   "Description": "",
-  "LastSaved": "2024-02-05T16:59:12.0251402\u002B00:00",
+  "LastSaved": "2024-02-05T17:14:33.1687763\u002B00:00",
   "__references": []
 }
