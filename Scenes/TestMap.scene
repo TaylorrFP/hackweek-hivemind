@@ -67,7 +67,7 @@
     {
       "Id": "f01aae0a-fd9c-4d22-8b6a-f641e7f4ba34",
       "Name": "Cube",
-      "Position": "72.93593,100.3516,21.2016",
+      "Position": "216.536,3.310188,21.2016",
       "Tags": "deadly",
       "Enabled": true,
       "Components": [
@@ -88,12 +88,30 @@
           "Static": false,
           "Surface": null
         }
+      ],
+      "Children": [
+        {
+          "Id": "c33fdb85-a8f9-4805-8938-c075d30eae08",
+          "Name": "Object",
+          "Position": "-26.68629,0,11.50761",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TextRenderer",
+              "Color": "0,0,0,1",
+              "FontFamily": "Poppins",
+              "FontSize": 32,
+              "Scale": 0.1,
+              "Text": "Work together to get\nto the end"
+            }
+          ]
+        }
       ]
     },
     {
       "Id": "f651839d-ab1a-4fa8-bc5b-056342957852",
       "Name": "Cube (1)",
-      "Position": "158.5694,-60.09385,21.20145",
+      "Position": "168.2287,-95.16063,21.20145",
       "Tags": "deadly",
       "Enabled": true,
       "Components": [
@@ -146,41 +164,6 @@
       "Id": "ab877493-9fe6-450b-99bf-41bce0d4bd03",
       "Name": "Cube (15)",
       "Position": "953.8515,112.4859,66.095",
-      "Rotation": "0,0,0.7071067,0.7071068",
-      "Tags": "deadly",
-      "Networked": true,
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "ModelRenderer",
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
-          "MaterialOverride": null,
-          "Model": "models/dev/box.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "BoxCollider",
-          "Center": "0,0,0",
-          "IsTrigger": false,
-          "Scale": "50,50,50",
-          "Static": false,
-          "Surface": null
-        },
-        {
-          "__type": "MovingPlatform",
-          "boxCollider": null,
-          "frequency": 2,
-          "magnitude": 200,
-          "offset": 0
-        }
-      ]
-    },
-    {
-      "Id": "e5ea5391-c451-4667-aba2-57eda2db5b14",
-      "Name": "Cube (18)",
-      "Position": "-108.7135,112.4861,66.095",
       "Rotation": "0,0,0.7071067,0.7071068",
       "Tags": "deadly",
       "Networked": true,
@@ -287,6 +270,90 @@
       "Name": "Cube (4)",
       "Position": "522.4798,-9.422577,-23.26922",
       "Scale": "1.082313,0.6862682,1",
+      "Tags": "deadly",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "1b4c8063-3a57-41e2-8974-0b7f84509aaa",
+      "Name": "Cube (19)",
+      "Position": "522.4798,124.3611,-23.26922",
+      "Rotation": "0,0,0.258819,0.9659258",
+      "Scale": "2.239086,0.6862682,1",
+      "Tags": "deadly",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "cb0647cb-e5f0-480b-a84a-18023df6b37e",
+      "Name": "Cube (20)",
+      "Position": "593.3622,198.0248,-23.26948",
+      "Rotation": "0,0,0.5,0.8660254",
+      "Scale": "2.582749,0.6862682,1",
+      "Tags": "deadly",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "1cb7f557-62d7-4c9e-af33-6717411bb845",
+      "Name": "Cube (21)",
+      "Position": "669.288,207.438,-23.26947",
+      "Rotation": "0,0,-0.258819,0.9659259",
+      "Scale": "2.444007,0.6862682,1",
       "Tags": "deadly",
       "Enabled": true,
       "Components": [
@@ -507,7 +574,33 @@
     {
       "Id": "5b5dd6ed-1b05-475d-980b-350981343f14",
       "Name": "Cube (2)",
-      "Position": "239.3605,50.5944,21.20143",
+      "Position": "230.9994,120.7045,21.20143",
+      "Tags": "deadly",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "362901ee-9812-416e-b24c-937378083c46",
+      "Name": "Cube (22)",
+      "Position": "363.3573,53.04819,21.20156",
       "Tags": "deadly",
       "Enabled": true,
       "Components": [
@@ -581,6 +674,49 @@
           "Scale": "50,50,50",
           "Static": false,
           "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "514f2455-2a5b-49b4-8c30-1d5435fc5743",
+      "Name": "Cube (23)",
+      "Position": "1641.643,119.4343,105.2093",
+      "Tags": "deadly",
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null
+        }
+      ],
+      "Children": [
+        {
+          "Id": "f05b5f4a-b7b5-44d4-99ac-428dd43721d2",
+          "Name": "Object",
+          "Position": "-25.60864,-2.947899,4.594765",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TextRenderer",
+              "Color": "1,1,1,1",
+              "FontFamily": "Poppins",
+              "FontSize": 128,
+              "Scale": 0.34,
+              "Text": "\uD83C\uDFAF"
+            }
+          ]
         }
       ]
     },
@@ -714,6 +850,17 @@
           },
           "RigidbodyFlags": 0,
           "StartAsleep": false
+        },
+        {
+          "__type": "Voice",
+          "Loopback": false,
+          "Mode": "PushToTalk",
+          "MorphScale": 3,
+          "MorphSmoothTime": 0.1,
+          "PushToTalkInput": "voice",
+          "Renderer": null,
+          "Volume": 1,
+          "WorldspacePlayback": true
         }
       ],
       "Children": [
@@ -813,31 +960,6 @@
               "Tint": "1,1,1,1"
             }
           ]
-        },
-        {
-          "Id": "774630e4-e3c3-46e5-ac26-3ffded2d1f9a",
-          "Name": "World",
-          "Position": "13.46843,0,47.0276",
-          "Scale": "-0.3860039,0.1143124,0.1143124",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "WorldPanel",
-              "HorizontalAlign": "Center",
-              "LookAtCamera": false,
-              "PanelSize": "128,128",
-              "RenderScale": 1,
-              "VerticalAlign": "Center"
-            },
-            {
-              "__type": "TextRenderer",
-              "Color": "1,1,1,1",
-              "FontFamily": "Poppins",
-              "FontSize": 128,
-              "Scale": 1,
-              "Text": "\uD83D\uDE30"
-            }
-          ]
         }
       ]
     },
@@ -866,7 +988,7 @@
     {
       "Id": "f5579540-55ea-468d-a47b-55140ce9af72",
       "Name": "Object",
-      "Position": "1455.83,117.9355,60.97845",
+      "Position": "1449.794,117.9355,60.97845",
       "Enabled": true,
       "Children": [
         {
@@ -894,6 +1016,20 @@
           ]
         }
       ]
+    },
+    {
+      "Id": "8034bf94-16a8-4cb6-8cff-20bffc825ced",
+      "Name": "NetworkHelper",
+      "Position": "566.7509,415.9014,262.2806",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "NetworkHelper",
+          "PlayerPrefab": null,
+          "SpawnPoints": [],
+          "StartServer": true
+        }
+      ]
     }
   ],
   "SceneProperties": {
@@ -919,6 +1055,6 @@
   },
   "Title": "testmap",
   "Description": "",
-  "LastSaved": "2024-02-05T15:02:44.3979225\u002B00:00",
+  "LastSaved": "2024-02-05T16:59:12.0251402\u002B00:00",
   "__references": []
 }

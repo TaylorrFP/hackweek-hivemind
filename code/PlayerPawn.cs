@@ -117,6 +117,9 @@ public class PlayerPawn : Component
 				Log.Info( "You died" );
 
 				Transform.Position = playerSpawn.Transform.Position;
+				Transform.Rotation = playerSpawn.Transform.Rotation;
+
+				Death();
 			}
 
 			
@@ -126,6 +129,13 @@ public class PlayerPawn : Component
 
 
 
+	}
+
+	[Broadcast]
+	public void Death()
+	{
+
+		Sound.PlayFile( SoundFile.Load( "sounds/kenney/ui/back_004.vsnd_c" ) );
 	}
 
 	void BuildAverageVelocity()

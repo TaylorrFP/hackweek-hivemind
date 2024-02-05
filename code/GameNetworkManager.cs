@@ -45,6 +45,12 @@ public sealed class GameNetworkManager : Component, Component.INetworkListener
 
 	}
 
+	public void OnDisconnected( Connection connection )
+	{
+		
+
+	}
+
 
 
 }

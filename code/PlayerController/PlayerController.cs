@@ -48,7 +48,7 @@ public sealed class PlayerController : Component
 
 			if ( !inputVelocity.IsNearZeroLength ) inputVelocity = inputVelocity.Normal;
 
-			//Log.Info( WishVelocity );
+			
 
 
 
