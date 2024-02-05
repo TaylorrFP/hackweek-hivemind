@@ -8,6 +8,8 @@ public class PlayerPawn : Component
 	//string[] playerEmojis = new string[19];
 
 	[Property] public GameObject playerCursorPrefab { get; set; }
+
+	[Property] public GameObject playerSpawn { get; set; }
 	[Property] public List<PlayerController> playerControllers { get; set; } = new();
 
 	[Property] public List<GameObject> playerCursors { get; set; } = new();
@@ -37,7 +39,7 @@ public class PlayerPawn : Component
 
 	protected override void OnAwake()
 	{
-
+	
 
 
 		base.OnAwake();
@@ -108,6 +110,15 @@ public class PlayerPawn : Component
 
 			BuildAverageVelocity();
 			Move();
+
+			if ( Transform.Position.z < -500f )
+			{
+
+				Log.Info( "You died" );
+
+				Transform.Position = playerSpawn.Transform.Position;
+			}
+
 			
 		}
 
@@ -135,12 +146,8 @@ public class PlayerPawn : Component
 
 			float divide = 1.0f / playerControllers.Count;
 
-			Log.Info( "PlayerController Count: " + playerControllers.Count );
-			Log.Info( "Divide: " + divide );
-
 			averageInputVelocity = averageDir * Speed* divide;
-			Log.Info( "AverageDir: " + averageDir );
-			Log.Info( "AIV: " + averageInputVelocity );
+
 
 		}
 
