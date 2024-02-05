@@ -1,0 +1,50 @@
+{
+  "RootObject": {
+    "Id": "815cb568-41cf-42ed-92be-0d3b0da48bbc",
+    "Name": "playercursor",
+    "Position": "90.70962,60.14311,2",
+    "Enabled": true,
+    "Children": [
+      {
+        "Id": "088447fe-be90-4093-97ee-9cf76d37b2fc",
+        "Name": "Sprite",
+        "Position": "53.24485,0,0",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "SpriteRenderer",
+            "Additive": false,
+            "CastShadows": false,
+            "Color": "0.31188,0.06176,0.06176,1",
+            "DepthFeather": 0,
+            "FogStrength": 1,
+            "Opaque": true,
+            "Size": "1,1",
+            "Texture": "materials/particles/shapes/circle1.vtex"
+          }
+        ]
+      },
+      {
+        "Id": "fe904812-baee-4f5e-b6e4-98f7f4d020be",
+        "Name": "Name",
+        "Position": "53.245,0,-0.9197768",
+        "Scale": "0.1,0.1,0.1",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "TextRenderer",
+            "Color": "1,1,1,1",
+            "FontFamily": "Poppins",
+            "FontSize": 128,
+            "Scale": 0.04,
+            "Text": "PlayerName"
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}

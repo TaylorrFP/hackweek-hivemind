@@ -1,0 +1,28 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+<root>
+
+    <div class="playerlist">
+
+        <p> @playerPawn.playerControllers.Count</p>
+
+
+    </div>
+	
+</root>
+
+@code
+{
+
+    [Property] PlayerPawn playerPawn { get; set; }
+
+	protected override int BuildHash()
+    
+    {
+        return System.HashCode.Combine(playerPawn.playerControllers);
+
+    }
+        
+}

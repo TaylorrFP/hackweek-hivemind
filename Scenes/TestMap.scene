@@ -1,0 +1,417 @@
+{
+  "Id": "17be303f-e717-404c-b44f-5ded756e818a",
+  "GameObjects": [
+    {
+      "Id": "0857bd9d-ec6c-48b2-8754-cf82a23ac9cb",
+      "Name": "Floor",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,-5",
+          "IsTrigger": false,
+          "Scale": "1000,1000,10",
+          "Static": false,
+          "Surface": null
+        }
+      ],
+      "Children": [
+        {
+          "Id": "b6306ac5-3db3-43d6-a84e-011afa0590f0",
+          "Name": "Object",
+          "Position": "0.3930676,0,0",
+          "Scale": "10,10,1",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/dev_metal_rough100.vmat",
+              "Model": "models/dev/plane.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Id": "55f2bb77-1ff0-436e-bebe-f67119a9d3c4",
+      "Name": "Sun",
+      "Rotation": "0,0.258819,0,0.9659258",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "DirectionalLight",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Shadows": true,
+          "SkyColor": "0.05882,0.07451,0.08235,1"
+        }
+      ]
+    },
+    {
+      "Id": "2de1a732-7a16-4544-ade8-eaebac4761b5",
+      "Name": "2D Skybox",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "SkyBox2D",
+          "SkyMaterial": "materials/skybox/light_test_sky_sunny02.vmat",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "Id": "f01aae0a-fd9c-4d22-8b6a-f641e7f4ba34",
+      "Name": "Cube",
+      "Position": "114.5725,198.3002,21.20144",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "f651839d-ab1a-4fa8-bc5b-056342957852",
+      "Name": "Cube (1)",
+      "Position": "265.0253,-57.75156,21.20144",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "472cb595-3e89-4b51-be44-ba95bb243094",
+      "Name": "Cube (3)",
+      "Position": "428.174,-252.4912,21.20144",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "5b5dd6ed-1b05-475d-980b-350981343f14",
+      "Name": "Cube (2)",
+      "Position": "380.6014,51.0622,21.20144",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "e76dee2a-ef85-4cee-875f-cc10ed950745",
+      "Name": "Spawnpoint",
+      "Position": "0,-82.39569,0",
+      "Enabled": true
+    },
+    {
+      "Id": "ebc1986a-580a-48a6-8eea-a00d1382ee89",
+      "Name": "GameNetworkManager",
+      "Networked": true,
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "GameNetworkManager",
+          "playerPawn": {
+            "_type": "component",
+            "go": "24e45c6b-7bb7-438e-8e42-1cb46ab12283",
+            "component_type": "PlayerPawn"
+          },
+          "PlayerPrefab": {
+            "_type": "gameobject",
+            "prefab": "assets/player/playercontroller.prefab"
+          },
+          "SpawnPoint": {
+            "_type": "gameobject",
+            "go": "e76dee2a-ef85-4cee-875f-cc10ed950745"
+          }
+        }
+      ]
+    },
+    {
+      "Id": "24e45c6b-7bb7-438e-8e42-1cb46ab12283",
+      "Name": "playerpawn",
+      "Networked": true,
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "CharacterController",
+          "Acceleration": 10,
+          "Bounciness": 0.3,
+          "GroundAngle": 45,
+          "Height": 64,
+          "IgnoreLayers": "player",
+          "Radius": 16,
+          "StepHeight": 18
+        },
+        {
+          "__type": "PlayerPawn",
+          "characterController": {
+            "_type": "component",
+            "go": "24e45c6b-7bb7-438e-8e42-1cb46ab12283",
+            "component_type": "CharacterController"
+          },
+          "AirControl": 0.1,
+          "CrouchSpeed": 90,
+          "GroundControl": 4,
+          "JumpForce": 400,
+          "MaxForce": 50,
+          "pawnCamera": {
+            "_type": "component",
+            "go": "c8a7afd5-70a3-45ee-9a55-3c85e17ced23",
+            "component_type": "CameraComponent"
+          },
+          "pawnCrosshair": {
+            "_type": "gameobject",
+            "go": "9361dd3c-67db-4fd5-96e7-1bf1f443c1e1"
+          },
+          "playerControllers": [],
+          "playerCursorPrefab": {
+            "_type": "gameobject",
+            "prefab": "assets/player/playercursor.prefab"
+          },
+          "playerCursors": [],
+          "RunSpeed": 290,
+          "Speed": 160
+        }
+      ],
+      "Children": [
+        {
+          "Id": "20217387-7cf1-4e91-8e2f-c712577067dd",
+          "Name": "Head",
+          "Position": "6.604212,0,61.19401",
+          "Enabled": true,
+          "Children": [
+            {
+              "Id": "9361dd3c-67db-4fd5-96e7-1bf1f443c1e1",
+              "Name": "Crosshair",
+              "Position": "0,0,0",
+              "Enabled": true,
+              "Children": [
+                {
+                  "Id": "5fa0e388-3ba0-4c11-b403-af44c1cc330a",
+                  "Name": "Sprite",
+                  "Position": "53.24485,0,0",
+                  "Enabled": true,
+                  "Components": [
+                    {
+                      "__type": "SpriteRenderer",
+                      "Additive": false,
+                      "CastShadows": false,
+                      "Color": "1,1,1,1",
+                      "DepthFeather": 0,
+                      "FogStrength": 1,
+                      "Opaque": true,
+                      "Size": "6,6",
+                      "Texture": "materials/particles/shapes/ring2.vtex"
+                    }
+                  ]
+                },
+                {
+                  "Id": "e0cafe7e-01bd-4e5b-97da-1aebd2f3d871",
+                  "Name": "Sprite",
+                  "Position": "53.24485,0,0",
+                  "Enabled": true,
+                  "Components": [
+                    {
+                      "__type": "SpriteRenderer",
+                      "Additive": false,
+                      "CastShadows": false,
+                      "Color": "1,1,1,1",
+                      "DepthFeather": 0,
+                      "FogStrength": 1,
+                      "Opaque": true,
+                      "Size": "1,1",
+                      "Texture": "materials/particles/shapes/circle1.vtex"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Id": "c8a7afd5-70a3-45ee-9a55-3c85e17ced23",
+              "Name": "Camera",
+              "Position": "0,0,0",
+              "Tags": "maincamera",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "CameraComponent",
+                  "BackgroundColor": "0.33333,0.46275,0.52157,1",
+                  "ClearFlags": "All",
+                  "FieldOfView": 60,
+                  "IsMainCamera": true,
+                  "Orthographic": false,
+                  "OrthographicHeight": 1204,
+                  "Priority": 1,
+                  "RenderExcludeTags": "",
+                  "RenderTags": "",
+                  "TargetEye": "None",
+                  "Viewport": "0,0,1,1",
+                  "ZFar": 10000,
+                  "ZNear": 10
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "4f8adda1-edd8-42c3-8d22-d28300494397",
+          "Name": "Cube",
+          "Position": "0,0,28.91239",
+          "Scale": "0.4845059,0.4266583,1.361628",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            }
+          ]
+        },
+        {
+          "Id": "774630e4-e3c3-46e5-ac26-3ffded2d1f9a",
+          "Name": "World",
+          "Position": "13.46843,0,47.0276",
+          "Scale": "-0.3860039,0.1143124,0.1143124",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "WorldPanel",
+              "HorizontalAlign": "Center",
+              "LookAtCamera": false,
+              "PanelSize": "128,128",
+              "RenderScale": 1,
+              "VerticalAlign": "Center"
+            },
+            {
+              "__type": "TextRenderer",
+              "Color": "1,1,1,1",
+              "FontFamily": "Poppins",
+              "FontSize": 128,
+              "Scale": 1,
+              "Text": "\uD83D\uDE30"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Id": "b7b18b6c-60d1-495c-ae3e-67f191efceff",
+      "Name": "Screen",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ScreenPanel",
+          "AutoScreenScale": true,
+          "Opacity": 1,
+          "Scale": 1,
+          "ZIndex": 100
+        },
+        {
+          "__type": "PlayerHud",
+          "playerPawn": {
+            "_type": "component",
+            "go": "24e45c6b-7bb7-438e-8e42-1cb46ab12283",
+            "component_type": "PlayerPawn"
+          }
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "Lerping": true,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "testmap",
+  "Description": "",
+  "LastSaved": "2024-02-05T13:52:33.6589189\u002B00:00",
+  "__references": []
+}

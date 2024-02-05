@@ -1,0 +1,19 @@
+{
+  "RootObject": {
+    "Id": "60b34be3-58b7-4f0d-add4-0943bdb65cb2",
+    "Name": "playercontroller",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "PlayerController",
+        "eyeAngle": "0,0,0",
+        "inputVelocity": "0,0,0"
+      }
+    ],
+    "Children": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}

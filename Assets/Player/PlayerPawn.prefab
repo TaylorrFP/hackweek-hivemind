@@ -1,0 +1,102 @@
+{
+  "RootObject": {
+    "Id": "7db3e06c-1719-43f7-97cb-5964a25b10b2",
+    "Name": "playerpawn",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "CharacterController",
+        "Acceleration": 10,
+        "Bounciness": 0.3,
+        "GroundAngle": 45,
+        "Height": 64,
+        "IgnoreLayers": "player",
+        "Radius": 16,
+        "StepHeight": 18
+      },
+      {
+        "__type": "PlayerPawn"
+      }
+    ],
+    "Children": [
+      {
+        "Id": "064dc3f5-1063-4fd5-8d5d-fcddaa58641d",
+        "Name": "Head",
+        "Position": "6.604212,0,61.19401",
+        "Enabled": true
+      },
+      {
+        "Id": "7399bf94-19d9-4e33-ae03-9d2938f598bd",
+        "Name": "Camera",
+        "Position": "3.368802,0,62.6041",
+        "Tags": "maincamera",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "CameraComponent",
+            "BackgroundColor": "0.33333,0.46275,0.52157,1",
+            "ClearFlags": "All",
+            "FieldOfView": 60,
+            "IsMainCamera": true,
+            "Orthographic": false,
+            "OrthographicHeight": 1204,
+            "Priority": 1,
+            "RenderExcludeTags": "",
+            "RenderTags": "",
+            "TargetEye": "None",
+            "Viewport": "0,0,1,1",
+            "ZFar": 10000,
+            "ZNear": 10
+          }
+        ]
+      },
+      {
+        "Id": "e5eaaf01-3570-48d4-8cfa-960abf951f59",
+        "Name": "Cube",
+        "Position": "0,0,28.91239",
+        "Scale": "0.4845059,0.4266583,1.361628",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "ModelRenderer",
+            "BodyGroups": 18446744073709551615,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
+            "Model": "models/dev/box.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "Id": "72d537f7-58ff-4dcc-9589-75a4f250a113",
+        "Name": "World",
+        "Position": "13.46843,0,47.0276",
+        "Scale": "-0.3860039,0.1143124,0.1143124",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "WorldPanel",
+            "HorizontalAlign": "Center",
+            "LookAtCamera": false,
+            "PanelSize": "128,128",
+            "RenderScale": 1,
+            "VerticalAlign": "Center"
+          },
+          {
+            "__type": "TextRenderer",
+            "Color": "1,1,1,1",
+            "FontFamily": "Poppins",
+            "FontSize": 128,
+            "Scale": 1,
+            "Text": "\uD83D\uDE30"
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}

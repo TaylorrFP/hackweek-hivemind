@@ -1,0 +1,120 @@
+{
+  "RootObject": {
+    "Id": "152571a3-517c-4b3c-bc7e-55d7a9f40321",
+    "Name": "player",
+    "Networked": true,
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "CharacterController",
+        "Acceleration": 10,
+        "GroundAngle": 45,
+        "Height": 64,
+        "IgnoreLayers": "player",
+        "Radius": 16,
+        "StepHeight": 18
+      },
+      {
+        "__type": "PlayerController",
+        "AirControl": 0.1,
+        "Body": "f031fcea-e368-428b-a39c-afe46a541e7e",
+        "Camera": {
+          "_type": "component",
+          "go": "18bcddca-264f-4b31-8fe0-b32cffdb1014",
+          "component_type": "CameraComponent"
+        },
+        "CrouchSpeed": 90,
+        "eyeAngle": "0,0,0",
+        "GroundControl": 4,
+        "Head": "1c603d3c-29cd-40bd-a1fc-0eab6ecab521",
+        "JumpForce": 400,
+        "MaxForce": 50,
+        "RunSpeed": 290,
+        "Speed": 160,
+        "SpriteHolder": "1a38f316-9e84-4dc6-9ca4-465bd361e75c"
+      }
+    ],
+    "Children": [
+      {
+        "Id": "f031fcea-e368-428b-a39c-afe46a541e7e",
+        "Name": "Body",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "SkinnedModelRenderer",
+            "BodyGroups": 341,
+            "BoneMergeTarget": null,
+            "CreateBoneObjects": false,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
+            "Model": "models/citizen/citizen.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "Id": "1c603d3c-29cd-40bd-a1fc-0eab6ecab521",
+        "Name": "Head",
+        "Position": "6.604212,0,61.19401",
+        "Enabled": true
+      },
+      {
+        "Id": "18bcddca-264f-4b31-8fe0-b32cffdb1014",
+        "Name": "Camera",
+        "Position": "3.368802,0,62.6041",
+        "Tags": "maincamera",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "CameraComponent",
+            "BackgroundColor": "0.33333,0.46275,0.52157,1",
+            "ClearFlags": "All",
+            "FieldOfView": 60,
+            "IsMainCamera": true,
+            "Orthographic": false,
+            "OrthographicHeight": 1204,
+            "Priority": 1,
+            "RenderExcludeTags": "",
+            "RenderTags": "",
+            "TargetEye": "None",
+            "Viewport": "0,0,1,1",
+            "ZFar": 10000,
+            "ZNear": 10
+          }
+        ]
+      },
+      {
+        "Id": "1a38f316-9e84-4dc6-9ca4-465bd361e75c",
+        "Name": "SpriteHolder",
+        "Position": "3.368802,0,62.6041",
+        "Enabled": true,
+        "Children": [
+          {
+            "Id": "a3f51d3f-cce1-4c16-8690-97d98e629b95",
+            "Name": "Sprite",
+            "Position": "53.24485,0,0",
+            "Enabled": true,
+            "Components": [
+              {
+                "__type": "SpriteRenderer",
+                "Additive": false,
+                "CastShadows": false,
+                "Color": "0.31188,0.06176,0.06176,1",
+                "DepthFeather": 0,
+                "FogStrength": 1,
+                "Opaque": true,
+                "Size": "1,1",
+                "Texture": "materials/particles/shapes/circle1.vtex"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "__references": []
+}
