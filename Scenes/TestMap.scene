@@ -27,7 +27,7 @@
               "__type": "ModelRenderer",
               "BodyGroups": 18446744073709551615,
               "MaterialGroup": null,
-              "MaterialOverride": "materials/dev/dev_metal_rough100.vmat",
+              "MaterialOverride": "materials/dev/simple/wall_simple_128.vmat",
               "Model": "models/dev/plane.vmdl",
               "RenderType": "On",
               "Tint": "1,1,1,1"
@@ -39,7 +39,7 @@
     {
       "Id": "55f2bb77-1ff0-436e-bebe-f67119a9d3c4",
       "Name": "Sun",
-      "Rotation": "0,0.258819,0,0.9659258",
+      "Rotation": "0.09904574,0.2391176,-0.3696438,0.8923991",
       "Enabled": true,
       "Components": [
         {
@@ -93,7 +93,7 @@
         {
           "Id": "c33fdb85-a8f9-4805-8938-c075d30eae08",
           "Name": "Object",
-          "Position": "-26.68629,0,11.50761",
+          "Position": "-26.68629,0,6.170479",
           "Enabled": true,
           "Components": [
             {
@@ -102,7 +102,7 @@
               "FontFamily": "Poppins",
               "FontSize": 32,
               "Scale": 0.1,
-              "Text": "Work together to get\nto the end"
+              "Text": "Everyone Controls the Player\n\nWork together to get\nto the end\n\nWASD to move"
             }
           ]
         }
@@ -635,7 +635,7 @@
           "__type": "ModelRenderer",
           "BodyGroups": 18446744073709551615,
           "MaterialGroup": null,
-          "MaterialOverride": null,
+          "MaterialOverride": "materials/dev/simple/wall_simple_128.vmat",
           "Model": "models/dev/box.vmdl",
           "RenderType": "On",
           "Tint": "1,1,1,1"
@@ -662,7 +662,7 @@
           "__type": "ModelRenderer",
           "BodyGroups": 18446744073709551615,
           "MaterialGroup": null,
-          "MaterialOverride": null,
+          "MaterialOverride": "materials/dev/simple/wall_simple_128.vmat",
           "Model": "models/dev/box.vmdl",
           "RenderType": "On",
           "Tint": "1,1,1,1"
@@ -800,6 +800,7 @@
             "go": "24e45c6b-7bb7-438e-8e42-1cb46ab12283",
             "component_type": "CharacterController"
           },
+          "testInt": 0,
           "AirControl": 0.1,
           "CrouchSpeed": 90,
           "GroundControl": 2.5,
@@ -938,7 +939,7 @@
                   "TargetEye": "None",
                   "Viewport": "0,0,1,1",
                   "ZFar": 10000,
-                  "ZNear": 10
+                  "ZNear": 15
                 }
               ]
             }
@@ -1056,6 +1057,6 @@
   },
   "Title": "testmap",
   "Description": "",
-  "LastSaved": "2024-02-05T17:14:33.1687763\u002B00:00",
+  "LastSaved": "2024-02-06T17:24:08.8391832\u002B00:00",
   "__references": []
 }

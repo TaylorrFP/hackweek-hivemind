@@ -20,6 +20,7 @@ public class PlayerPawn : Component
 
 	Angles averageEyeAngle;
 	Vector3 averageInputVelocity = 0;
+	[Property] public int testInt;
 
 	[Property] public CharacterController characterController;
 
@@ -141,22 +142,65 @@ public class PlayerPawn : Component
 	void BuildAverageVelocity()
 	{
 
-		var averageDir = Vector3.Zero;
+		averageInputVelocity = Vector3.Zero;
+
+		var normalisedVelocity = Vector3.Zero;
 
 		if ( playerControllers.Count > 0 )
 		{
+			var totalPlayers = playerControllers.Count;
+
+			var minVoteCount = (playerControllers.Count + 1) / 2;
+			if ( playerControllers.Count == 2 )
+			{
+				minVoteCount = 2;
+			}
+
+
+			var forwardCount = 0;
+			var backwardCount = 0;
+			var leftCount = 0;
+			var rightCount = 0;
 
 			for ( int i = 0; i < playerControllers.Count; i++ )
 			{
-				averageDir += playerControllers[i].inputVelocity;
+				switch (playerControllers[i].forwardInput )
+				{
+					case 1:
+						forwardCount++;break;
+					case -1:
+						backwardCount++;break;
+
+				}
+				switch ( playerControllers[i].strafeInput )
+				{
+					case 1:
+						leftCount++; break;
+					case -1:
+						rightCount++; break;
+
+				}
+
+				normalisedVelocity = new Vector3( playerControllers[i].forwardInput, playerControllers[i].strafeInput, 0 ).Normal;
 
 			}
 
-			//averageDir = averageDir / playerControllers.Count; //THIS IS WHERE ITS FUCKING UP
 
-			float divide = 1.0f / playerControllers.Count;
+			if ( forwardCount >= minVoteCount || backwardCount >= minVoteCount || leftCount >= minVoteCount || rightCount >= minVoteCount )
+			{
 
-			averageInputVelocity = averageDir * Speed* divide;
+				//if any of the inputs are enough to swing the vote, 
+
+				averageInputVelocity += normalisedVelocity;
+
+			}
+
+			
+
+			averageInputVelocity = averageInputVelocity * averageEyeAngle * Speed;
+	
+
+
 
 
 		}
@@ -166,7 +210,7 @@ public class PlayerPawn : Component
 
 	void Move()
 	{
-		WishVelocity = averageInputVelocity;
+		
 		// Get gravity from our scene
 		var gravity = Scene.PhysicsWorld.Gravity;
 
@@ -174,14 +218,14 @@ public class PlayerPawn : Component
 		{
 			// Apply Friction/Acceleration
 			characterController.Velocity = characterController.Velocity.WithZ( 0 );
-			characterController.Accelerate( WishVelocity );
+			characterController.Accelerate( averageInputVelocity );
 			characterController.ApplyFriction( GroundControl );
 		}
 		else
 		{
 			// Apply Air Control / Gravity
 			characterController.Velocity += gravity * Time.Delta * 0.5f;
-			characterController.Accelerate( WishVelocity.ClampLength( MaxForce ) );
+			characterController.Accelerate( averageInputVelocity.ClampLength( MaxForce ) );
 			characterController.ApplyFriction( AirControl );
 		}
 

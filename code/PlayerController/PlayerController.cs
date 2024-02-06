@@ -9,7 +9,10 @@ public sealed class PlayerController : Component
 {
 
 	[Property][Sync] public Angles eyeAngle { get; set; }
-	[Property][Sync] public Vector3 inputVelocity { get; set; }
+
+	
+	[Property] [Sync] public int forwardInput { get; set; }
+	[Property] [Sync] public int strafeInput { get; set; }
 
 
 
@@ -36,19 +39,25 @@ public sealed class PlayerController : Component
 
 			eyeAngle = new Angles( (eyeAngle.pitch + Input.MouseDelta.y * 0.1f).Clamp( -89.9f, 89.9f ), eyeAngle.yaw - Input.MouseDelta.x * 0.1f, 0f );
 
-			inputVelocity = 0;
+		
 
 			var rot = eyeAngle.ToRotation();
-			if ( Input.Down( "Forward" ) ) inputVelocity += rot.Forward;
-			if ( Input.Down( "Backward" ) ) inputVelocity += rot.Backward;
-			if ( Input.Down( "Left" ) ) inputVelocity += rot.Left;
-			if ( Input.Down( "Right" ) ) inputVelocity += rot.Right;
 
-			inputVelocity = inputVelocity.WithZ( 0 );
+			forwardInput = 0;
+			strafeInput = 0;
 
-			if ( !inputVelocity.IsNearZeroLength ) inputVelocity = inputVelocity.Normal;
 
-			
+			if ( Input.Down( "Forward" ) ) forwardInput = 1;
+			if ( Input.Down( "Backward" ) ) forwardInput = -1;
+			if ( Input.Down( "Backward" ) & Input.Down( "Forward" ) ) forwardInput = 0;
+
+			if ( Input.Down( "Left" ) ) strafeInput = 1;
+			if ( Input.Down( "Right" ) ) strafeInput = -1;
+			if ( Input.Down( "Left" ) & Input.Down( "Right" ) ) strafeInput = 0;
+
+
+
+
 
 
 
