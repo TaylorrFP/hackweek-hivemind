@@ -1001,6 +1001,7 @@
           "Id": "9361dd3c-67db-4fd5-96e7-1bf1f443c1e1",
           "Name": "Crosshair",
           "Position": "0,0,0",
+          "Rotation": "-0.7071068,0,0,0.7071068",
           "Enabled": true,
           "Children": [
             {
@@ -1106,6 +1107,8 @@
             "go": "ca732948-0455-44e4-9a67-cf28ee4b01e7"
           },
           "JumpForce": 400,
+          "localAltAngle": "0,0,0",
+          "localViewAngle": "0,0,0",
           "MaxForce": 50,
           "pawnCamera": {
             "_type": "component",
@@ -1289,6 +1292,6 @@
   },
   "Title": "testmap",
   "Description": "",
-  "LastSaved": "2024-02-07T15:11:29.4835988\u002B00:00",
+  "LastSaved": "2024-02-07T15:24:28.5922745\u002B00:00",
   "__references": []
 }

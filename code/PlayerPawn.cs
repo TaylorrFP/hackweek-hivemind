@@ -27,6 +27,10 @@ public class PlayerPawn : Component
 
 	[Property] public Vector3 averageInputVelocity { get; set; }
 
+	[Property] public Angles localViewAngle { get; set; }
+
+	[Property] public Angles localAltAngle { get; set; }
+
 	[Property] Vector3 cameraTarget;
 
 	[Property] public CharacterController characterController;
@@ -101,14 +105,18 @@ public class PlayerPawn : Component
 		for ( int i = 0; i < playerControllers.Count; i++ )
 		{
 
-			playerCursors[i].Transform.LocalRotation = playerControllers[i].eyeAngle.ToRotation();
+			
 
 
 			averageViewVector += playerControllers[i].eyeAngle.Forward;
 
 			if ( playerControllers[i].Network.IsOwner )//if this controller is one we own
 			{
-				pawnCamera.Transform.LocalRotation = new Angles( playerControllers[i].eyeAngle + playerControllers[i].altEyeAngle ).ToRotation();
+				
+
+				localAltAngle = playerControllers[i].altEyeAngle;
+				localViewAngle = playerControllers[i].eyeAngle;
+
 
 				localForwardInput = playerControllers[i].forwardInput;
 				localStrafeInput = playerControllers[i].strafeInput;
@@ -127,8 +135,7 @@ public class PlayerPawn : Component
 
 
 
-		pawnCrosshair.Transform.Rotation = Rotation.LookAt( averageViewVector );
-		pawnCrosshair.Transform.LocalPosition = pawnCamera.Transform.LocalPosition;
+
 
 		cameraTarget = new Vector3( localForwardInput, localStrafeInput, 0f ).Normal * averageMoveAngle * 5;
 		
@@ -170,12 +177,21 @@ public class PlayerPawn : Component
 
 
 		playerHead.Transform.Position = Vector3.Lerp( playerHead.Transform.Position, headPosition.Transform.Position, Time.Delta * 10f );
-
+		pawnCamera.Transform.LocalPosition = Vector3.Lerp( pawnCamera.Transform.LocalPosition, cameraTarget, Time.Delta * 5f );
+		pawnCamera.Transform.LocalRotation = new Angles( localViewAngle + localAltAngle ).ToRotation();
 		for ( int i = 0; i < playerControllers.Count; i++ )
 		{
-			playerCursors[i].Transform.LocalPosition = pawnCamera.Transform.LocalPosition;//do this in prerender so it doesn't lag
+			playerCursors[i].Transform.LocalPosition = pawnCamera.Transform.LocalPosition;//do this in prerender so it doesn't lag?
+			playerCursors[i].Transform.LocalRotation = playerControllers[i].eyeAngle.ToRotation();
 		}
-		pawnCamera.Transform.LocalPosition = Vector3.Lerp( pawnCamera.Transform.LocalPosition, cameraTarget, Time.Delta * 5f );
+
+	
+
+		
+		pawnCrosshair.Transform.Rotation = Rotation.LookAt( averageViewVector );
+		pawnCrosshair.Transform.LocalPosition = pawnCamera.Transform.LocalPosition;
+
+		
 	}
 
 	[Broadcast]
