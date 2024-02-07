@@ -18,11 +18,13 @@ public class PlayerPawn : Component
 
 	[Property] public CameraComponent pawnCamera { get; set; }
 
-	Angles averageEyeAngle;
-	Vector3 averageInputVelocity = 0;
-	[Property] public int testInt;
+	[Property] public Angles averageMoveAngle { get; set; }
 
-	[Property] public CharacterController characterController;
+	[Property] public Vector3 averageViewVector { get; set; }
+
+	[Property] public Vector3 averageInputVelocity { get; set; }
+
+[Property] public CharacterController characterController;
 
 	// Movement Properties
 	[Property] public float GroundControl { get; set; } = 4.0f;
@@ -85,16 +87,15 @@ public class PlayerPawn : Component
 
 
 
-		averageEyeAngle = Angles.Zero;
-		var averageVector = Vector3.Zero;
+		averageMoveAngle = Angles.Zero;
+		averageViewVector = Vector3.Zero;
 
 		for ( int i = 0; i < playerControllers.Count; i++ )
 		{
 
-			averageEyeAngle += playerControllers[i].eyeAngle;
 			playerCursors[i].Transform.LocalRotation = playerControllers[i].eyeAngle.ToRotation();
 
-			averageVector += playerControllers[i].eyeAngle.Forward;
+			averageViewVector += playerControllers[i].eyeAngle.Forward;
 
 			if ( playerControllers[i].Network.IsOwner )//if this controller is one we own
 			{
@@ -107,9 +108,9 @@ public class PlayerPawn : Component
 		}
 
 
-		averageVector = averageVector.Normal;
-		averageEyeAngle = averageEyeAngle / playerControllers.Count;
-		pawnCrosshair.Transform.Rotation = Rotation.LookAt( averageVector );
+		averageViewVector = averageViewVector.Normal;
+		averageMoveAngle = Rotation.LookAt( averageViewVector ).Angles();
+		pawnCrosshair.Transform.Rotation = Rotation.LookAt( averageViewVector );
 		
 
 	}
@@ -161,9 +162,10 @@ public class PlayerPawn : Component
 			var totalPlayers = playerControllers.Count;
 
 			var minVoteCount = (playerControllers.Count + 1) / 2;
-			if ( playerControllers.Count == 2 )
+
+			if ( playerControllers.Count < 3 )
 			{
-				minVoteCount = 2;
+				minVoteCount = totalPlayers;//if there are only two require them both to vote
 			}
 
 
@@ -174,6 +176,8 @@ public class PlayerPawn : Component
 
 			for ( int i = 0; i < playerControllers.Count; i++ )
 			{
+
+				//first go through and add up all the votes
 				switch (playerControllers[i].forwardInput )
 				{
 					case 1:
@@ -191,25 +195,32 @@ public class PlayerPawn : Component
 
 				}
 
-				normalisedVelocity = new Vector3( playerControllers[i].forwardInput, playerControllers[i].strafeInput, 0 ).Normal;
+				normalisedVelocity = new Vector3( playerControllers[i].forwardInput, playerControllers[i].strafeInput, 0 ).Normal;//normalise the vector accounting for diagonals
+				averageInputVelocity += normalisedVelocity;//add the normalised vector to average inputVelocity
+				averageInputVelocity = averageInputVelocity/ totalPlayers;
+			}
+
+
+			if ( forwardCount < minVoteCount & backwardCount < minVoteCount)
+			{
+				//if they don't match the votes - clear the input direction
+
+				averageInputVelocity = new Vector3( 0, averageInputVelocity.y, 0 );
 
 			}
 
 
-			if ( forwardCount >= minVoteCount || backwardCount >= minVoteCount || leftCount >= minVoteCount || rightCount >= minVoteCount )
+			if ( leftCount < minVoteCount & rightCount < minVoteCount )
 			{
 
-				//if any of the inputs are enough to swing the vote, 
-
-				averageInputVelocity += normalisedVelocity;
+				averageInputVelocity = new Vector3( averageInputVelocity.x, 0, 0 );
 
 			}
 
+
+			averageInputVelocity = averageInputVelocity * averageMoveAngle* Speed;
+
 			
-
-			averageInputVelocity = averageInputVelocity * averageEyeAngle * Speed;//GET RID OF AVERAGE EYE ANGLE HERE!!!!
-	
-
 
 
 
