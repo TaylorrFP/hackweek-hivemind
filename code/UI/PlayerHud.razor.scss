@@ -7,11 +7,65 @@ PlayerHud {
 	font-family: Poppins;
 	font-size: 24px;
 
-	> .playerlist 
-	{
+	> .playerlist {
 		position: absolute;
 		top: 32px;
 		left: 32px;
 		font-size: 64px;
+	}
+
+	.movementbutton {
+		width: 100px;
+		height: 100px;
+		backdrop-filter: blur(20px);
+		backdrop-filter: brightness(0.5);
+		border-radius: 32px;
+		margin-bottom: 0px;
+/*		margin-left: -100px; //adjust this for the jump buttons
+		transform: translate(+50%, 0%); //this too to make sure it's centered*/
+		flex: 100px 1 0;
+		justify-content: center;
+
+
+		> p {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			font-size: 48px;
+			text-stroke: 3px black;
+		}
+	}
+
+
+	> .jumpbuttonholder {
+		position: absolute;
+		bottom: 32px;
+		width: 100%;
+		justify-content: center;
+	}
+
+	> .movementbuttonsholder {
+		position: absolute;
+		bottom: 32px;
+		left: 32px;
+		flex-direction: column;
+		gap: 12px;
+
+
+
+		> .movementbuttons {
+			flex-direction: row;
+			justify-content: center;
+			gap: 12px;
+		}
+		/*		> .bottomrowmovementholder {
+			position: absolute;
+			flex-direction: row;
+
+			> .bottomrowbutton {
+
+			}
+		}*/
 	}
 }

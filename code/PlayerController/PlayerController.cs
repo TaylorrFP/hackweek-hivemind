@@ -10,26 +10,8 @@ public sealed class PlayerController : Component
 
 	[Property][Sync] public Angles eyeAngle { get; set; }
 
-	
 	[Property] [Sync] public int forwardInput { get; set; }
 	[Property] [Sync] public int strafeInput { get; set; }
-
-
-
-
-
-
-
-	protected override void OnStart()
-	{
-		base.OnStart();
-
-
-
-		//Log.Info( "Spawning PlayerController for: " + this.GameObject.Network.OwnerConnection.DisplayName );
-
-		//gonna have to manually add these to the pawn and hope they sync?
-	}
 
 	protected override void OnUpdate()
 	{
@@ -37,12 +19,14 @@ public sealed class PlayerController : Component
 		if ( !IsProxy ) //if you own this
 		{
 
+
+			//set eye angles with inputs
 			eyeAngle = new Angles( (eyeAngle.pitch + Input.MouseDelta.y * 0.1f).Clamp( -89.9f, 89.9f ), eyeAngle.yaw - Input.MouseDelta.x * 0.1f, 0f );
 
-		
 
-			var rot = eyeAngle.ToRotation();
 
+
+			//set strafe values with inputs
 			forwardInput = 0;
 			strafeInput = 0;
 
@@ -55,15 +39,11 @@ public sealed class PlayerController : Component
 			if ( Input.Down( "Right" ) ) strafeInput = -1;
 			if ( Input.Down( "Left" ) & Input.Down( "Right" ) ) strafeInput = 0;
 
-
-
-
-
-
-
-
-
 		}
+
+
+		//Debug
+		Log.Info( this.Network.OwnerConnection.DisplayName + ": " + eyeAngle.ToString() + " | Is Owner = " + this.Network.IsOwner + " | IsNetworked? = " + this.Network.Active);
 
 
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public sealed class GameNetworkManager : Component, Component.INetworkListener
 {
-	[Property] public GameObject PlayerPrefab { get; set; } 
+	[Property] public GameObject playerControllerPrefab { get; set; } 
 	[Property] public GameObject SpawnPoint { get; set; }
 
 	[Property] public PlayerPawn playerPawn { get; set; }
@@ -21,36 +21,14 @@ public sealed class GameNetworkManager : Component, Component.INetworkListener
 		playerControllers = new List<GameObject>();
 	}
 
-		public void OnActive( Connection connection )
+	public void OnActive( Connection connection )
 	{
 
-		var playerGO = PlayerPrefab.Clone( SpawnPoint.Transform.World );
-		playerGO.NetworkSpawn( connection );
-
-		//playerControllers.Add( playerGO );
-
-		//Log.Info( connection.DisplayName + " Connected" );
+		var playerControllerGO = playerControllerPrefab.Clone( SpawnPoint.Transform.World );
+		playerControllerGO.NetworkSpawn( connection );
 
 		
-
-		if ( connection.IsHost )
-		{
-			//Log.Info( connection.DisplayName + " is Host" );
-
-		}
-		else
-		{
-
-			//Log.Info( connection.DisplayName + " is not Host" );
-		}
-
-
 		playerPawn.RefreshPlayerControllers();
-	
-
-
-
-
 	
 
 	}

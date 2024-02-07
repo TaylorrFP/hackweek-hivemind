@@ -723,7 +723,7 @@
     {
       "Id": "39f2f3d0-7fcb-4aeb-af6c-76c545bca493",
       "Name": "Cube (13)",
-      "Position": "1103.004,110.3088,-22.84361",
+      "Position": "1103.004,110.3088,-24.56111",
       "Scale": "10.81613,0.6300996,1",
       "Tags": "deadly",
       "Enabled": true,
@@ -760,15 +760,15 @@
       "Components": [
         {
           "__type": "GameNetworkManager",
+          "playerControllerPrefab": {
+            "_type": "gameobject",
+            "prefab": "assets/player/playercontroller.prefab"
+          },
           "playerControllers": [],
           "playerPawn": {
             "_type": "component",
             "go": "24e45c6b-7bb7-438e-8e42-1cb46ab12283",
             "component_type": "PlayerPawn"
-          },
-          "PlayerPrefab": {
-            "_type": "gameobject",
-            "prefab": "assets/player/playercontroller.prefab"
           },
           "SpawnPoint": {
             "_type": "gameobject",
@@ -1057,6 +1057,6 @@
   },
   "Title": "testmap",
   "Description": "",
-  "LastSaved": "2024-02-06T17:24:08.8391832\u002B00:00",
+  "LastSaved": "2024-02-06T23:14:23.58527\u002B00:00",
   "__references": []
 }

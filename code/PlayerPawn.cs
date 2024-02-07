@@ -81,14 +81,21 @@ public class PlayerPawn : Component
 	protected override void OnUpdate()
 	{
 
-		averageEyeAngle = Angles.Zero;
 
+
+
+
+		averageEyeAngle = Angles.Zero;
+		var averageVector = Vector3.Zero;
 
 		for ( int i = 0; i < playerControllers.Count; i++ )
 		{
 
 			averageEyeAngle += playerControllers[i].eyeAngle;
 			playerCursors[i].Transform.LocalRotation = playerControllers[i].eyeAngle.ToRotation();
+
+			averageVector += playerControllers[i].eyeAngle.Forward;
+
 			if ( playerControllers[i].Network.IsOwner )//if this controller is one we own
 			{
 				pawnCamera.Transform.LocalRotation = playerControllers[i].eyeAngle.ToRotation();
@@ -98,8 +105,10 @@ public class PlayerPawn : Component
 
 		}
 
+
+		averageVector = averageVector.Normal;
 		averageEyeAngle = averageEyeAngle / playerControllers.Count;
-		pawnCrosshair.Transform.Rotation = averageEyeAngle.ToRotation();
+		pawnCrosshair.Transform.Rotation = Rotation.LookAt( averageVector );
 		
 
 	}
@@ -197,7 +206,7 @@ public class PlayerPawn : Component
 
 			
 
-			averageInputVelocity = averageInputVelocity * averageEyeAngle * Speed;
+			averageInputVelocity = averageInputVelocity * averageEyeAngle * Speed;//GET RID OF AVERAGE EYE ANGLE HERE!!!!
 	
 
 
