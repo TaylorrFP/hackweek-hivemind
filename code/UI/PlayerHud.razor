@@ -11,7 +11,10 @@
             
             <div class="playername" style= "background-color: @playerPawn.playerColours[i].Hex">
 
-                <p> @playerPawn.playerControllers[i].Network.OwnerConnection.DisplayName </p>
+
+                 <p> @playerPawn.playerControllers[i].Network.OwnerConnection.DisplayName </p>
+
+
 
             </div>
 
@@ -28,17 +31,27 @@
 
     <div class="jumpbuttonholder">
 
-        <div class="movementbutton">
 
-            <p> 🦘 </p>
+        @for (int i = 0; i < playerPawn.playerControllers.Count; i++)
+        {
+            @if (playerPawn.playerControllers[i].forwardInput == 1)
+            {
+                <div class="buttonoutline" style="border: @playerPawn.playerColours[i].Hex; height: @(124+ (24 * i))px;width: @(124+ (24 * i))px; bottom: @(32 + 12*(playerPawn.playerControllers.Count-i));border-radius:@(32+i*12);">
+                </div>
 
-        </div>
-        <div class="movementbutton">
 
-            <p> 🦘 </p>
+            }
 
-        </div>
-        <div class="movementbutton">
+ 
+
+
+        
+
+
+
+        }
+
+        <div class="movementbutton" style = "bottom: @(32 + 12*(playerPawn.playerControllers.Count+1));">
 
             <p> 🦘 </p>
 
@@ -95,10 +108,11 @@
 
     [Property] PlayerPawn playerPawn { get; set; }
 
-	protected override int BuildHash()
-    
+    protected override int BuildHash()
+
     {
-        return System.HashCode.Combine(playerPawn.playerControllers);
+        //return System.HashCode.Combine(playerPawn.playerControllers);
+        return System.HashCode.Combine(Time.Delta);// DON'T DO THIS IN THE FUTUREEEE
 
     }
         

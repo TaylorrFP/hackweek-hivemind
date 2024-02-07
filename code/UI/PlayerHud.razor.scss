@@ -25,38 +25,44 @@ PlayerHud {
 				top: 50%;
 				left: 32px;
 				transform: translate(0%, -50%);
-				
+				font-weight: bold;
 			}
 		}
 	}
 
 	.movementbutton {
+		position: absolute;
+		bottom: 20px;
 		width: 100px;
 		height: 100px;
 		backdrop-filter: blur(20px);
 		backdrop-filter: brightness(0.5);
-		border-radius: 32px;
-		margin-bottom: 0px;
-		/*		margin-left: -100px; //adjust this for the jump buttons
-		transform: translate(+50%, 0%); //this too to make sure it's centered*/
-		flex: 100px 1 0;
-		justify-content: center;
-		border: 5px solid black; //use borders to line up the outlines perfectly?
+		border-radius: 26px;
+		border: 3px solid black; //use borders to line up the outlines perfectly?
 
 
 		> p {
-			/*			position: absolute;
+
+			position: absolute;
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
-			font-size: 48px;
+			/*font-size: 48px;
 			text-stroke: 3px black;*/
 
 
-			justify-content: center;
+		
 			font-size: 48px;
 			text-stroke: 3px black;
 		}
+	}
+
+	.buttonoutline {
+		position: absolute;
+		width: 100px;
+		height: 100px;
+		border-radius: 32px;
+		border: 14px solid black;
 	}
 
 
