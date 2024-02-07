@@ -189,9 +189,62 @@
         {
           "__type": "MovingPlatform",
           "boxCollider": null,
+          "curveTest": [
+            {},
+            {},
+            {
+              "mode": "Flat"
+            },
+            {
+              "x": 0.50595236,
+              "y": 0.11276051,
+              "in": -0.6368186,
+              "out": 0.6368186
+            },
+            {
+              "x": 0.72023815,
+              "y": 0.4223202,
+              "in": -3.477512,
+              "out": 3.477512
+            },
+            {
+              "x": 0.8422619,
+              "y": 0.9130964,
+              "in": -1.8896463,
+              "out": 1.8896463
+            },
+            {
+              "x": 0.96130955,
+              "y": 1
+            }
+          ],
           "frequency": 2,
           "magnitude": 200,
-          "offset": 0
+          "offset": 0,
+          "playerDist": 0,
+          "playerPawn": {
+            "_type": "gameobject",
+            "go": "24e45c6b-7bb7-438e-8e42-1cb46ab12283"
+          },
+          "soundAttenuation": 0,
+          "soundPoint": {
+            "_type": "component",
+            "go": "ab877493-9fe6-450b-99bf-41bce0d4bd03",
+            "component_type": "SoundPointComponent"
+          }
+        },
+        {
+          "__type": "SoundPointComponent",
+          "Force2d": false,
+          "MaxRepeatTime": 1,
+          "MinRepeatTime": 1,
+          "Pitch": 1,
+          "PlayOnStart": true,
+          "Repeat": false,
+          "SoundEvent": "assets/sounds/movingcubesambient.sound",
+          "SoundOverride": true,
+          "StopOnNew": false,
+          "Volume": 1
         }
       ]
     },
@@ -224,9 +277,62 @@
         {
           "__type": "MovingPlatform",
           "boxCollider": null,
+          "curveTest": [
+            {},
+            {},
+            {
+              "mode": "Flat"
+            },
+            {
+              "x": 0.50595236,
+              "y": 0.11276051,
+              "in": -0.6368186,
+              "out": 0.6368186
+            },
+            {
+              "x": 0.72023815,
+              "y": 0.4223202,
+              "in": -3.477512,
+              "out": 3.477512
+            },
+            {
+              "x": 0.8422619,
+              "y": 0.9130964,
+              "in": -1.8896463,
+              "out": 1.8896463
+            },
+            {
+              "x": 0.96130955,
+              "y": 1
+            }
+          ],
           "frequency": 2,
           "magnitude": 200,
-          "offset": 1
+          "offset": 1,
+          "playerDist": 0,
+          "playerPawn": {
+            "_type": "gameobject",
+            "go": "24e45c6b-7bb7-438e-8e42-1cb46ab12283"
+          },
+          "soundAttenuation": 0,
+          "soundPoint": {
+            "_type": "component",
+            "go": "6b4273ab-4328-43da-8083-3009d863575e",
+            "component_type": "SoundPointComponent"
+          }
+        },
+        {
+          "__type": "SoundPointComponent",
+          "Force2d": false,
+          "MaxRepeatTime": 1,
+          "MinRepeatTime": 1,
+          "Pitch": 1,
+          "PlayOnStart": true,
+          "Repeat": false,
+          "SoundEvent": "assets/sounds/movingcubesambient.sound",
+          "SoundOverride": true,
+          "StopOnNew": false,
+          "Volume": 1
         }
       ]
     },
@@ -259,9 +365,62 @@
         {
           "__type": "MovingPlatform",
           "boxCollider": null,
+          "curveTest": [
+            {},
+            {},
+            {
+              "mode": "Flat"
+            },
+            {
+              "x": 0.50595236,
+              "y": 0.11276051,
+              "in": -0.6368186,
+              "out": 0.6368186
+            },
+            {
+              "x": 0.72023815,
+              "y": 0.4223202,
+              "in": -3.477512,
+              "out": 3.477512
+            },
+            {
+              "x": 0.8422619,
+              "y": 0.9130964,
+              "in": -1.8896463,
+              "out": 1.8896463
+            },
+            {
+              "x": 0.96130955,
+              "y": 1
+            }
+          ],
           "frequency": 2,
           "magnitude": 200,
-          "offset": 2
+          "offset": 2,
+          "playerDist": 0,
+          "playerPawn": {
+            "_type": "gameobject",
+            "go": "24e45c6b-7bb7-438e-8e42-1cb46ab12283"
+          },
+          "soundAttenuation": 0,
+          "soundPoint": {
+            "_type": "component",
+            "go": "ac4d0e72-c5ef-4574-8088-6b36d8446356",
+            "component_type": "SoundPointComponent"
+          }
+        },
+        {
+          "__type": "SoundPointComponent",
+          "Force2d": false,
+          "MaxRepeatTime": 1,
+          "MinRepeatTime": 1,
+          "Pitch": 1,
+          "PlayOnStart": true,
+          "Repeat": false,
+          "SoundEvent": "assets/sounds/movingcubesambient.sound",
+          "SoundOverride": true,
+          "StopOnNew": false,
+          "Volume": 1
         }
       ]
     },
@@ -1113,6 +1272,6 @@
   },
   "Title": "testmap",
   "Description": "",
-  "LastSaved": "2024-02-07T02:15:59.9147666\u002B00:00",
+  "LastSaved": "2024-02-07T11:01:16.7837286\u002B00:00",
   "__references": []
 }

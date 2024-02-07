@@ -11,6 +11,15 @@ public sealed class MovingPlatform : Component, Component.ICollisionListener
 	[Property] public float magnitude { get; set; }
 	[Property] public float offset { get; set; }
 
+	[Property] public GameObject playerPawn { get; set; }
+
+	[Property] public SoundPointComponent soundPoint { get; set; }
+	[Property] public float soundAttenuation { get; set; }
+
+	[Property] public float playerDist { get; set; }
+
+	[Property] public Curve curveTest { get; set; }
+
 	public void OnCollisionStart( Collision other )
 	{
 		Log.Info( other );
@@ -51,10 +60,18 @@ public sealed class MovingPlatform : Component, Component.ICollisionListener
 
 
 		startPosition = Transform.Position;
+
+		
 	}
 	protected override void OnUpdate()
 	{
 		Transform.Position = startPosition + Transform.Rotation.Forward * MathF.Sin( Time.Now * frequency + offset ) * magnitude;
+
+		
+		playerDist = 1- ((this.Transform.Position - playerPawn.Transform.Position).Length*0.002f);
+
+		
+		soundPoint.Volume = curveTest.Evaluate( playerDist );
 
 	}
 

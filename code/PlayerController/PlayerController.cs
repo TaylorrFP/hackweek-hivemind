@@ -8,7 +8,7 @@ using System.Diagnostics;
 public sealed class PlayerController : Component
 {
 
-	[Property][Sync] public Angles eyeAngle { get; set; }
+	[Property][Sync (Query = true)] public Angles eyeAngle { get; set; }
 
 	[Property] [Sync] public int forwardInput { get; set; }
 	[Property] [Sync] public int strafeInput { get; set; }
@@ -55,7 +55,7 @@ public sealed class PlayerController : Component
 
 
 		//Debug
-		//Log.Info( this.Network.OwnerConnection.DisplayName + ": " + eyeAngle.ToString() + " | Is Owner = " + this.Network.IsOwner + " | IsNetworked? = " + this.Network.Active);
+		Log.Info( this.Network.OwnerConnection.DisplayName + ": " + eyeAngle.ToString() + " | Is Owner = " + this.Network.IsOwner + " | IsNetworked? = " + this.Network.Active);
 
 
 
