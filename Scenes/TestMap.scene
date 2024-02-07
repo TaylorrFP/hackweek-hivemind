@@ -238,13 +238,13 @@
           "Force2d": false,
           "MaxRepeatTime": 1,
           "MinRepeatTime": 1,
-          "Pitch": 1,
+          "Pitch": 0.94,
           "PlayOnStart": true,
           "Repeat": false,
           "SoundEvent": "assets/sounds/movingcubesambient.sound",
           "SoundOverride": true,
           "StopOnNew": false,
-          "Volume": 1
+          "Volume": 0
         }
       ]
     },
@@ -326,13 +326,13 @@
           "Force2d": false,
           "MaxRepeatTime": 1,
           "MinRepeatTime": 1,
-          "Pitch": 1,
+          "Pitch": 1.1,
           "PlayOnStart": true,
           "Repeat": false,
           "SoundEvent": "assets/sounds/movingcubesambient.sound",
           "SoundOverride": true,
           "StopOnNew": false,
-          "Volume": 1
+          "Volume": 0
         }
       ]
     },
@@ -420,7 +420,7 @@
           "SoundEvent": "assets/sounds/movingcubesambient.sound",
           "SoundOverride": true,
           "StopOnNew": false,
-          "Volume": 1
+          "Volume": 0
         }
       ]
     },
@@ -1272,6 +1272,6 @@
   },
   "Title": "testmap",
   "Description": "",
-  "LastSaved": "2024-02-07T11:01:16.7837286\u002B00:00",
+  "LastSaved": "2024-02-07T11:06:03.109429\u002B00:00",
   "__references": []
 }
