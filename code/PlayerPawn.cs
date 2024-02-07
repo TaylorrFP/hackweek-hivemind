@@ -94,7 +94,8 @@ public class PlayerPawn : Component
 
 		averageMoveAngle = Angles.Zero;
 		averageViewVector = Vector3.Zero;
-
+		var localForwardInput = 0f;
+		var localStrafeInput = 0f;
 		
 
 		for ( int i = 0; i < playerControllers.Count; i++ )
@@ -107,21 +108,11 @@ public class PlayerPawn : Component
 
 			if ( playerControllers[i].Network.IsOwner )//if this controller is one we own
 			{
-				//pawnCamera.Transform.LocalRotation = playerControllers[i].eyeAngle.ToRotation();
 				pawnCamera.Transform.LocalRotation = new Angles( playerControllers[i].eyeAngle + playerControllers[i].altEyeAngle ).ToRotation();
 
-
-
-
-				cameraTarget = new Vector3( playerControllers[i].forwardInput, playerControllers[i].strafeInput, 0f ).Normal * 5;
-
-				pawnCamera.Transform.LocalPosition = Vector3.Lerp( pawnCamera.Transform.LocalPosition, cameraTarget, Time.Delta*5f );
-
-
-				
-
-				
-
+				localForwardInput = playerControllers[i].forwardInput;
+				localStrafeInput = playerControllers[i].strafeInput;
+				//var myViewDir = new Angles( 0, playerControllers[i].eyeAngle.yaw, 0 ); //get the angle of my view, we only want the pitch though
 
 			}
 
@@ -130,12 +121,17 @@ public class PlayerPawn : Component
 
 		}
 
-
 		averageViewVector = averageViewVector.Normal;
-		averageMoveAngle = Rotation.LookAt( averageViewVector ).Angles();
+		averageMoveAngle = new Angles(0, Rotation.LookAt( averageViewVector ).Angles().yaw,0);
+
+
+
+
 		pawnCrosshair.Transform.Rotation = Rotation.LookAt( averageViewVector );
 		pawnCrosshair.Transform.LocalPosition = pawnCamera.Transform.LocalPosition;
 
+		cameraTarget = new Vector3( localForwardInput, localStrafeInput, 0f ).Normal * averageMoveAngle * 5;
+		
 
 
 	}
@@ -179,7 +175,7 @@ public class PlayerPawn : Component
 		{
 			playerCursors[i].Transform.LocalPosition = pawnCamera.Transform.LocalPosition;//do this in prerender so it doesn't lag
 		}
-
+		pawnCamera.Transform.LocalPosition = Vector3.Lerp( pawnCamera.Transform.LocalPosition, cameraTarget, Time.Delta * 5f );
 	}
 
 	[Broadcast]
@@ -204,7 +200,7 @@ public class PlayerPawn : Component
 
 			if ( playerControllers.Count < 3 )
 			{
-				minVoteCount = totalPlayers;//if there are only two require them both to vote
+				minVoteCount = totalPlayers;//if there are only two require them both to vote, or one player doesn't need to vote
 			}
 
 
