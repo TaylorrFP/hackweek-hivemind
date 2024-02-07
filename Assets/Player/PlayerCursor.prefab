@@ -1,14 +1,14 @@
 {
   "RootObject": {
-    "Id": "90bd474f-adb1-4f25-82e3-2c27e49c2d43",
+    "Id": "1b3b32fa-6a9c-4905-aaac-05c6e9b028a9",
     "Name": "playercursor",
     "Enabled": true,
     "Children": [
       {
-        "Id": "f74a36c8-3b25-42e6-8f7d-b7464b74d921",
+        "Id": "6ec8a25f-d4ce-4774-92c4-dbe1275790e2",
         "Name": "Sprite",
         "Position": "30.1,0,0",
-        "Scale": "0.5,0.5,1",
+        "Scale": "0.1,0.1,1",
         "Enabled": true,
         "Components": [
           {
@@ -19,13 +19,13 @@
             "DepthFeather": 0,
             "FogStrength": 1,
             "Opaque": true,
-            "Size": "1,1",
+            "Size": "10,10",
             "Texture": "materials/particles/shapes/circle1.vtex"
           }
         ]
       },
       {
-        "Id": "79e7151d-c4bf-43bb-8009-b9a61ea915e7",
+        "Id": "97fc4d3f-2001-4f28-8d29-e2c3e2cbf0f4",
         "Name": "Name",
         "Position": "30.1,0,-0.9197768",
         "Scale": "0.1,0.1,0.1",

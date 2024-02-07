@@ -1,13 +1,13 @@
 {
   "RootObject": {
-    "Id": "54bdb6ce-26a0-4999-92ed-506a8565d224",
+    "Id": "b197cfad-d8dc-4268-99c1-d3e5b75a6b05",
     "Name": "playercontroller",
     "Networked": true,
     "Enabled": true,
     "Components": [
       {
         "__type": "PlayerController",
-        "eyeAngle": "0,0,0",
+        "altEyeAngle": "0,0,0",
         "forwardInput": 0,
         "strafeInput": 0
       }

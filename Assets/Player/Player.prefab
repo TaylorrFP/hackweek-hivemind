@@ -8,6 +8,7 @@
       {
         "__type": "CharacterController",
         "Acceleration": 10,
+        "Bounciness": 0.3,
         "GroundAngle": 45,
         "Height": 64,
         "IgnoreLayers": "player",
@@ -16,22 +17,9 @@
       },
       {
         "__type": "PlayerController",
-        "AirControl": 0.1,
-        "Body": "f031fcea-e368-428b-a39c-afe46a541e7e",
-        "Camera": {
-          "_type": "component",
-          "go": "18bcddca-264f-4b31-8fe0-b32cffdb1014",
-          "component_type": "CameraComponent"
-        },
-        "CrouchSpeed": 90,
-        "eyeAngle": "0,0,0",
-        "GroundControl": 4,
-        "Head": "1c603d3c-29cd-40bd-a1fc-0eab6ecab521",
-        "JumpForce": 400,
-        "MaxForce": 50,
-        "RunSpeed": 290,
-        "Speed": 160,
-        "SpriteHolder": "1a38f316-9e84-4dc6-9ca4-465bd361e75c"
+        "altEyeAngle": "0,0,0",
+        "forwardInput": 0,
+        "strafeInput": 0
       }
     ],
     "Children": [
