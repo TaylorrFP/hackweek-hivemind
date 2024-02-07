@@ -19,35 +19,37 @@ public sealed class PlayerController : Component
 
 		if ( !IsProxy ) //if you own this
 		{
+			//zer strage values
+			forwardInput = 0;
+			strafeInput = 0;
 
 			if ( Input.Down("Walk" ))
 			{
-				Log.Info( "walk!" );
 				altEyeAngle = new Angles( (altEyeAngle.pitch + Input.MouseDelta.y * 0.1f).Clamp( -89.9f, 89.9f ), altEyeAngle.yaw - Input.MouseDelta.x * 0.1f, 0f );
 
 			}
 			else
 			{
+				//zero alt-look
 				altEyeAngle = Angles.Zero;
+
+				//set eye angles with inputs
 				eyeAngle = new Angles( (eyeAngle.pitch + Input.MouseDelta.y * 0.1f).Clamp( -89.9f, 89.9f ), eyeAngle.yaw - Input.MouseDelta.x * 0.1f, 0f );
+
+				//set strafe values with inputs
+				//only do this when alt look is disabled to prevent exploiting it
+
+
+
+				if ( Input.Down( "Forward" ) ) forwardInput = 1;
+				if ( Input.Down( "Backward" ) ) forwardInput = -1;
+				if ( Input.Down( "Backward" ) & Input.Down( "Forward" ) ) forwardInput = 0;
+
+				if ( Input.Down( "Left" ) ) strafeInput = 1;
+				if ( Input.Down( "Right" ) ) strafeInput = -1;
+				if ( Input.Down( "Left" ) & Input.Down( "Right" ) ) strafeInput = 0;
 			}
-			//set eye angles with inputs
-
-
-
-
-			//set strafe values with inputs
-			forwardInput = 0;
-			strafeInput = 0;
-
-
-			if ( Input.Down( "Forward" ) ) forwardInput = 1;
-			if ( Input.Down( "Backward" ) ) forwardInput = -1;
-			if ( Input.Down( "Backward" ) & Input.Down( "Forward" ) ) forwardInput = 0;
-
-			if ( Input.Down( "Left" ) ) strafeInput = 1;
-			if ( Input.Down( "Right" ) ) strafeInput = -1;
-			if ( Input.Down( "Left" ) & Input.Down( "Right" ) ) strafeInput = 0;
+		
 
 		}
 
