@@ -24,7 +24,9 @@ public class PlayerPawn : Component
 
 	[Property] public Vector3 averageInputVelocity { get; set; }
 
-[Property] public CharacterController characterController;
+	[Property] Vector3 cameraTarget;
+
+	[Property] public CharacterController characterController;
 
 	// Movement Properties
 	[Property] public float GroundControl { get; set; } = 4.0f;
@@ -90,10 +92,13 @@ public class PlayerPawn : Component
 		averageMoveAngle = Angles.Zero;
 		averageViewVector = Vector3.Zero;
 
+		
+
 		for ( int i = 0; i < playerControllers.Count; i++ )
 		{
 
 			playerCursors[i].Transform.LocalRotation = playerControllers[i].eyeAngle.ToRotation();
+
 
 			averageViewVector += playerControllers[i].eyeAngle.Forward;
 
@@ -102,7 +107,22 @@ public class PlayerPawn : Component
 				//pawnCamera.Transform.LocalRotation = playerControllers[i].eyeAngle.ToRotation();
 				pawnCamera.Transform.LocalRotation = new Angles( playerControllers[i].eyeAngle + playerControllers[i].altEyeAngle ).ToRotation();
 
+
+
+
+				cameraTarget = new Vector3( playerControllers[i].forwardInput, playerControllers[i].strafeInput, 0f ).Normal * 5;
+
+				pawnCamera.Transform.LocalPosition = Vector3.Lerp( pawnCamera.Transform.LocalPosition, cameraTarget, Time.Delta*5f );
+
+
+				
+
+				
+
+
 			}
+
+			
 
 
 		}
@@ -111,7 +131,9 @@ public class PlayerPawn : Component
 		averageViewVector = averageViewVector.Normal;
 		averageMoveAngle = Rotation.LookAt( averageViewVector ).Angles();
 		pawnCrosshair.Transform.Rotation = Rotation.LookAt( averageViewVector );
-		
+		pawnCrosshair.Transform.LocalPosition = pawnCamera.Transform.LocalPosition;
+
+
 
 	}
 
@@ -140,6 +162,17 @@ public class PlayerPawn : Component
 
 
 
+
+	}
+
+	protected override void OnPreRender()
+	{
+		base.OnPreRender();
+
+		for ( int i = 0; i < playerControllers.Count; i++ )
+		{
+			playerCursors[i].Transform.LocalPosition = pawnCamera.Transform.LocalPosition;//do this in prerender so it doesn't lag
+		}
 
 	}
 
