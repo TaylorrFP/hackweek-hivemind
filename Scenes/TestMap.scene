@@ -59,7 +59,7 @@
       "Components": [
         {
           "__type": "SkyBox2D",
-          "SkyMaterial": "materials/skybox/light_test_sky_sunny02.vmat",
+          "SkyMaterial": "materials/skybox/skybox_workshop.vmat",
           "Tint": "1,1,1,1"
         }
       ]
@@ -93,16 +93,16 @@
         {
           "Id": "c33fdb85-a8f9-4805-8938-c075d30eae08",
           "Name": "Object",
-          "Position": "-26.68629,0,6.170479",
+          "Position": "-26.68629,0,5.785261",
           "Enabled": true,
           "Components": [
             {
               "__type": "TextRenderer",
               "Color": "0,0,0,1",
               "FontFamily": "Poppins",
-              "FontSize": 32,
-              "Scale": 0.1,
-              "Text": "Everyone Controls the Player\n\nWork together to get\nto the end\n\nWASD to move"
+              "FontSize": 73.85,
+              "Scale": 0.03,
+              "Text": "Everyone Controls the Player\n\nWASD and Jump only work if the\nmajority hold down the button\n\nThe player moves in the direction of\nyour average view (white reticule)\n\nYou can alt-look but you can\u0027t\ncontribute to movement while doing so"
             }
           ]
         }
@@ -936,7 +936,7 @@
                 {
                   "Id": "5fa0e388-3ba0-4c11-b403-af44c1cc330a",
                   "Name": "Sprite",
-                  "Position": "53.24485,0,0",
+                  "Position": "30,0,0",
                   "Enabled": true,
                   "Components": [
                     {
@@ -955,7 +955,8 @@
                 {
                   "Id": "e0cafe7e-01bd-4e5b-97da-1aebd2f3d871",
                   "Name": "Sprite",
-                  "Position": "53.24485,0,0",
+                  "Position": "30,0,0",
+                  "Scale": "0.5,0.5,1",
                   "Enabled": true,
                   "Components": [
                     {
@@ -984,7 +985,7 @@
                   "__type": "CameraComponent",
                   "BackgroundColor": "0.33333,0.46275,0.52157,1",
                   "ClearFlags": "All",
-                  "FieldOfView": 60,
+                  "FieldOfView": 90,
                   "IsMainCamera": true,
                   "Orthographic": false,
                   "OrthographicHeight": 1204,
@@ -1066,8 +1067,8 @@
               "__type": "TextRenderer",
               "Color": "1,1,1,1",
               "FontFamily": "Poppins",
-              "FontSize": 32,
-              "Scale": 1,
+              "FontSize": 128,
+              "Scale": 0.11,
               "Text": "Get to here! \u2764"
             }
           ]
@@ -1112,6 +1113,6 @@
   },
   "Title": "testmap",
   "Description": "",
-  "LastSaved": "2024-02-07T01:27:17.915757\u002B00:00",
+  "LastSaved": "2024-02-07T02:15:59.9147666\u002B00:00",
   "__references": []
 }

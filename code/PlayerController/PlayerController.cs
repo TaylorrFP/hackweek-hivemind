@@ -55,7 +55,7 @@ public sealed class PlayerController : Component
 
 
 		//Debug
-		Log.Info( this.Network.OwnerConnection.DisplayName + ": " + eyeAngle.ToString() + " | Is Owner = " + this.Network.IsOwner + " | IsNetworked? = " + this.Network.Active);
+		//Log.Info( this.Network.OwnerConnection.DisplayName + ": " + eyeAngle.ToString() + " | Is Owner = " + this.Network.IsOwner + " | IsNetworked? = " + this.Network.Active);
 
 
 
