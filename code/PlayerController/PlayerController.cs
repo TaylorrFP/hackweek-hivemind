@@ -12,6 +12,7 @@ public sealed class PlayerController : Component
 
 	[Property] [Sync] public int forwardInput { get; set; }
 	[Property] [Sync] public int strafeInput { get; set; }
+	[Property] public Angles altEyeAngle { get; set; }
 
 	protected override void OnUpdate()
 	{
@@ -19,9 +20,18 @@ public sealed class PlayerController : Component
 		if ( !IsProxy ) //if you own this
 		{
 
+			if ( Input.Down("Walk" ))
+			{
+				Log.Info( "walk!" );
+				altEyeAngle = new Angles( (altEyeAngle.pitch + Input.MouseDelta.y * 0.1f).Clamp( -89.9f, 89.9f ), altEyeAngle.yaw - Input.MouseDelta.x * 0.1f, 0f );
 
+			}
+			else
+			{
+				altEyeAngle = Angles.Zero;
+				eyeAngle = new Angles( (eyeAngle.pitch + Input.MouseDelta.y * 0.1f).Clamp( -89.9f, 89.9f ), eyeAngle.yaw - Input.MouseDelta.x * 0.1f, 0f );
+			}
 			//set eye angles with inputs
-			eyeAngle = new Angles( (eyeAngle.pitch + Input.MouseDelta.y * 0.1f).Clamp( -89.9f, 89.9f ), eyeAngle.yaw - Input.MouseDelta.x * 0.1f, 0f );
 
 
 

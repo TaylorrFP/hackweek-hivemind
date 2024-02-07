@@ -98,7 +98,8 @@ public class PlayerPawn : Component
 
 			if ( playerControllers[i].Network.IsOwner )//if this controller is one we own
 			{
-				pawnCamera.Transform.LocalRotation = playerControllers[i].eyeAngle.ToRotation();
+				//pawnCamera.Transform.LocalRotation = playerControllers[i].eyeAngle.ToRotation();
+				pawnCamera.Transform.LocalRotation = new Angles( playerControllers[i].eyeAngle + playerControllers[i].altEyeAngle ).ToRotation();
 
 			}
 

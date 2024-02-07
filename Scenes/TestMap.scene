@@ -173,7 +173,7 @@
           "__type": "ModelRenderer",
           "BodyGroups": 18446744073709551615,
           "MaterialGroup": null,
-          "MaterialOverride": null,
+          "MaterialOverride": "materials/dev/simple/floor_simple_128.vmat",
           "Model": "models/dev/box.vmdl",
           "RenderType": "On",
           "Tint": "1,1,1,1"
@@ -208,7 +208,7 @@
           "__type": "ModelRenderer",
           "BodyGroups": 18446744073709551615,
           "MaterialGroup": null,
-          "MaterialOverride": null,
+          "MaterialOverride": "materials/dev/simple/floor_simple_128.vmat",
           "Model": "models/dev/box.vmdl",
           "RenderType": "On",
           "Tint": "1,1,1,1"
@@ -243,7 +243,7 @@
           "__type": "ModelRenderer",
           "BodyGroups": 18446744073709551615,
           "MaterialGroup": null,
-          "MaterialOverride": null,
+          "MaterialOverride": "materials/dev/simple/floor_simple_128.vmat",
           "Model": "models/dev/box.vmdl",
           "RenderType": "On",
           "Tint": "1,1,1,1"
@@ -678,6 +678,33 @@
       ]
     },
     {
+      "Id": "1ac83deb-37e2-4966-a963-d876c80bad3b",
+      "Name": "Cube (18)",
+      "Position": "1898.393,110.3088,-27.14236",
+      "Scale": "2.791691,3.277632,1",
+      "Tags": "deadly",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": "materials/dev/simple/wall_simple_128.vmat",
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
       "Id": "514f2455-2a5b-49b4-8c30-1d5435fc5743",
       "Name": "Cube (23)",
       "Position": "1641.643,119.4343,105.2093",
@@ -725,6 +752,34 @@
       "Name": "Cube (13)",
       "Position": "1103.004,110.3088,-24.56111",
       "Scale": "10.81613,0.6300996,1",
+      "Tags": "deadly",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "ModelRenderer",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "BoxCollider",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "50,50,50",
+          "Static": false,
+          "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "57e2a473-c513-41d8-ad03-ea2a577fa187",
+      "Name": "Cube (25)",
+      "Position": "1532.87,110.3088,-11.99274",
+      "Rotation": "0,-0.1305262,0,0.9914449",
+      "Scale": "3.794927,2.989444,1",
       "Tags": "deadly",
       "Enabled": true,
       "Components": [
@@ -1057,6 +1112,6 @@
   },
   "Title": "testmap",
   "Description": "",
-  "LastSaved": "2024-02-06T23:14:23.58527\u002B00:00",
+  "LastSaved": "2024-02-07T01:27:17.915757\u002B00:00",
   "__references": []
 }
