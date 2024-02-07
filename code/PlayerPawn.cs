@@ -10,6 +10,9 @@ public class PlayerPawn : Component
 	[Property] public GameObject playerCursorPrefab { get; set; }
 
 	[Property] public GameObject playerSpawn { get; set; }
+
+	[Property] public GameObject playerHead { get; set; }
+	[Property] public GameObject headPosition { get; set; }
 	[Property] public List<PlayerController> playerControllers { get; set; } = new();
 
 	[Property] public List<GameObject> playerCursors { get; set; } = new();
@@ -168,6 +171,9 @@ public class PlayerPawn : Component
 	protected override void OnPreRender()
 	{
 		base.OnPreRender();
+
+
+		playerHead.Transform.Position = Vector3.Lerp( playerHead.Transform.Position, headPosition.Transform.Position, Time.Delta * 10f );
 
 		for ( int i = 0; i < playerControllers.Count; i++ )
 		{

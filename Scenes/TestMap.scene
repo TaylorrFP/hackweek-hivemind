@@ -992,6 +992,86 @@
       ]
     },
     {
+      "Id": "20217387-7cf1-4e91-8e2f-c712577067dd",
+      "Name": "Head",
+      "Position": "6.604212,0,61.19401",
+      "Enabled": true,
+      "Children": [
+        {
+          "Id": "9361dd3c-67db-4fd5-96e7-1bf1f443c1e1",
+          "Name": "Crosshair",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Children": [
+            {
+              "Id": "5fa0e388-3ba0-4c11-b403-af44c1cc330a",
+              "Name": "Sprite",
+              "Position": "30,0,0",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "SpriteRenderer",
+                  "Additive": false,
+                  "CastShadows": false,
+                  "Color": "1,1,1,1",
+                  "DepthFeather": 0,
+                  "FogStrength": 1,
+                  "Opaque": true,
+                  "Size": "6,6",
+                  "Texture": "materials/particles/shapes/ring2.vtex"
+                }
+              ]
+            },
+            {
+              "Id": "e0cafe7e-01bd-4e5b-97da-1aebd2f3d871",
+              "Name": "Sprite",
+              "Position": "30,0,0",
+              "Scale": "0.5,0.5,1",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "SpriteRenderer",
+                  "Additive": false,
+                  "CastShadows": false,
+                  "Color": "1,1,1,1",
+                  "DepthFeather": 0,
+                  "FogStrength": 1,
+                  "Opaque": true,
+                  "Size": "1,1",
+                  "Texture": "materials/particles/shapes/circle1.vtex"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Id": "c8a7afd5-70a3-45ee-9a55-3c85e17ced23",
+          "Name": "Camera",
+          "Position": "0,0,0",
+          "Tags": "maincamera",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "CameraComponent",
+              "BackgroundColor": "0.33333,0.46275,0.52157,1",
+              "ClearFlags": "All",
+              "FieldOfView": 90,
+              "IsMainCamera": true,
+              "Orthographic": false,
+              "OrthographicHeight": 1204,
+              "Priority": 1,
+              "RenderExcludeTags": "",
+              "RenderTags": "",
+              "TargetEye": "None",
+              "Viewport": "0,0,1,1",
+              "ZFar": 10000,
+              "ZNear": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
       "Id": "24e45c6b-7bb7-438e-8e42-1cb46ab12283",
       "Name": "playerpawn",
       "Networked": true,
@@ -1009,6 +1089,7 @@
         },
         {
           "__type": "PlayerPawn",
+          "cameraTarget": "0,0,0",
           "characterController": {
             "_type": "component",
             "go": "24e45c6b-7bb7-438e-8e42-1cb46ab12283",
@@ -1020,6 +1101,10 @@
           "averageViewVector": "0,0,0",
           "CrouchSpeed": 90,
           "GroundControl": 2.5,
+          "headPosition": {
+            "_type": "gameobject",
+            "go": "ca732948-0455-44e4-9a67-cf28ee4b01e7"
+          },
           "JumpForce": 400,
           "MaxForce": 50,
           "pawnCamera": {
@@ -1037,6 +1122,10 @@
             "prefab": "assets/player/playercursor.prefab"
           },
           "playerCursors": [],
+          "playerHead": {
+            "_type": "gameobject",
+            "go": "20217387-7cf1-4e91-8e2f-c712577067dd"
+          },
           "playerSpawn": {
             "_type": "gameobject",
             "go": "e76dee2a-ef85-4cee-875f-cc10ed950745"
@@ -1083,86 +1172,6 @@
       ],
       "Children": [
         {
-          "Id": "20217387-7cf1-4e91-8e2f-c712577067dd",
-          "Name": "Head",
-          "Position": "6.604212,0,61.19401",
-          "Enabled": true,
-          "Children": [
-            {
-              "Id": "9361dd3c-67db-4fd5-96e7-1bf1f443c1e1",
-              "Name": "Crosshair",
-              "Position": "0,0,0",
-              "Enabled": true,
-              "Children": [
-                {
-                  "Id": "5fa0e388-3ba0-4c11-b403-af44c1cc330a",
-                  "Name": "Sprite",
-                  "Position": "30,0,0",
-                  "Enabled": true,
-                  "Components": [
-                    {
-                      "__type": "SpriteRenderer",
-                      "Additive": false,
-                      "CastShadows": false,
-                      "Color": "1,1,1,1",
-                      "DepthFeather": 0,
-                      "FogStrength": 1,
-                      "Opaque": true,
-                      "Size": "6,6",
-                      "Texture": "materials/particles/shapes/ring2.vtex"
-                    }
-                  ]
-                },
-                {
-                  "Id": "e0cafe7e-01bd-4e5b-97da-1aebd2f3d871",
-                  "Name": "Sprite",
-                  "Position": "30,0,0",
-                  "Scale": "0.5,0.5,1",
-                  "Enabled": true,
-                  "Components": [
-                    {
-                      "__type": "SpriteRenderer",
-                      "Additive": false,
-                      "CastShadows": false,
-                      "Color": "1,1,1,1",
-                      "DepthFeather": 0,
-                      "FogStrength": 1,
-                      "Opaque": true,
-                      "Size": "1,1",
-                      "Texture": "materials/particles/shapes/circle1.vtex"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "Id": "c8a7afd5-70a3-45ee-9a55-3c85e17ced23",
-              "Name": "Camera",
-              "Position": "0,0,0",
-              "Tags": "maincamera",
-              "Enabled": true,
-              "Components": [
-                {
-                  "__type": "CameraComponent",
-                  "BackgroundColor": "0.33333,0.46275,0.52157,1",
-                  "ClearFlags": "All",
-                  "FieldOfView": 90,
-                  "IsMainCamera": true,
-                  "Orthographic": false,
-                  "OrthographicHeight": 1204,
-                  "Priority": 1,
-                  "RenderExcludeTags": "",
-                  "RenderTags": "",
-                  "TargetEye": "None",
-                  "Viewport": "0,0,1,1",
-                  "ZFar": 10000,
-                  "ZNear": 15
-                }
-              ]
-            }
-          ]
-        },
-        {
           "Id": "4f8adda1-edd8-42c3-8d22-d28300494397",
           "Name": "Cube",
           "Position": "0,0,28.91239",
@@ -1179,6 +1188,12 @@
               "Tint": "1,1,1,1"
             }
           ]
+        },
+        {
+          "Id": "ca732948-0455-44e4-9a67-cf28ee4b01e7",
+          "Name": "HeadPosition",
+          "Position": "6.604212,0,61.19401",
+          "Enabled": true
         }
       ]
     },
@@ -1274,6 +1289,6 @@
   },
   "Title": "testmap",
   "Description": "",
-  "LastSaved": "2024-02-07T13:26:15.0376661\u002B00:00",
+  "LastSaved": "2024-02-07T14:27:52.4849564\u002B00:00",
   "__references": []
 }
