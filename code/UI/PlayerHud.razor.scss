@@ -11,7 +11,23 @@ PlayerHud {
 		position: absolute;
 		top: 32px;
 		left: 32px;
-		font-size: 64px;
+		flex-direction: column;
+		gap: 8px;
+
+		> .playername {
+			width: 256px;
+			height: 64px;
+			color: white;
+			border-radius: 32px;
+
+			> p {
+				position: absolute;
+				top: 50%;
+				left: 32px;
+				transform: translate(0%, -50%);
+				
+			}
+		}
 	}
 
 	.movementbutton {

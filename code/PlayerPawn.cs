@@ -4,7 +4,7 @@ using System.Linq;
 
 public class PlayerPawn : Component
 {
-	Color[] playerColours = new Color[19];
+	public Color[] playerColours = new Color[19];
 	//string[] playerEmojis = new string[19];
 
 	[Property] public GameObject playerCursorPrefab { get; set; }

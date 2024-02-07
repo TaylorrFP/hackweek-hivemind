@@ -102,7 +102,7 @@
               "FontFamily": "Poppins",
               "FontSize": 73.85,
               "Scale": 0.03,
-              "Text": "Everyone Controls the Player\n\nWASD and Jump only work if the\nmajority hold down the button\n\nThe player moves in the direction of\nyour average view (white reticule)\n\nYou can alt-look but you can\u0027t\ncontribute to movement while doing so"
+              "Text": "Everyone Controls the Player\n\nWASD only works if the\nmajority hold down the button\n\nThe player moves in the direction of\nyour average view (white reticule)\n\nYou can alt-look but you can\u0027t\ncontribute to movement while doing so"
             }
           ]
         }
@@ -1069,6 +1069,24 @@
               "ZNear": 15
             }
           ]
+        },
+        {
+          "Id": "4f8adda1-edd8-42c3-8d22-d28300494397",
+          "Name": "Cube",
+          "Position": "-6.604212,0,-32.28162",
+          "Scale": "0.4845059,0.4266583,1.361628",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": null,
+              "Model": "models/dev/box.vmdl",
+              "RenderType": "ShadowsOnly",
+              "Tint": "1,1,1,1"
+            }
+          ]
         }
       ]
     },
@@ -1175,24 +1193,6 @@
       ],
       "Children": [
         {
-          "Id": "4f8adda1-edd8-42c3-8d22-d28300494397",
-          "Name": "Cube",
-          "Position": "0,0,28.91239",
-          "Scale": "0.4845059,0.4266583,1.361628",
-          "Enabled": true,
-          "Components": [
-            {
-              "__type": "ModelRenderer",
-              "BodyGroups": 18446744073709551615,
-              "MaterialGroup": null,
-              "MaterialOverride": null,
-              "Model": "models/dev/box.vmdl",
-              "RenderType": "On",
-              "Tint": "1,1,1,1"
-            }
-          ]
-        },
-        {
           "Id": "ca732948-0455-44e4-9a67-cf28ee4b01e7",
           "Name": "HeadPosition",
           "Position": "6.604212,0,61.19401",
@@ -1292,6 +1292,6 @@
   },
   "Title": "testmap",
   "Description": "",
-  "LastSaved": "2024-02-07T15:24:28.5922745\u002B00:00",
+  "LastSaved": "2024-02-07T18:45:36.3550381\u002B00:00",
   "__references": []
 }

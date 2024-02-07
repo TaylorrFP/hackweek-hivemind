@@ -6,7 +6,19 @@
 
     <div class="playerlist">
 
-        <p> @playerPawn.playerControllers.Count</p>
+        @for(int i=0; i<playerPawn.playerControllers.Count; i++)
+        {
+            
+            <div class="playername" style= "background-color: @playerPawn.playerColours[i].Hex">
+
+                <p> @playerPawn.playerControllers[i].Network.OwnerConnection.DisplayName </p>
+
+            </div>
+
+
+        }
+
+
 
 
     </div>
