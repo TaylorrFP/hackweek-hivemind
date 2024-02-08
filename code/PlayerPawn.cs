@@ -188,26 +188,29 @@ public class PlayerPawn : Component
 
 			if ( Transform.Position.z < -500f )
 			{
-
-				Log.Info( "You died" );
-
-				Transform.Position = playerSpawn.Transform.Position;
-				Transform.Rotation = playerSpawn.Transform.Rotation;
-
 				Death();
 			}
 
 
 		}
-		else
+
+
+
+
+
+	}
+
+	public void Death()
+	{
+		if ( !IsProxy )
 		{
-			//BuildAverageVelocity();//do this on the client too for now?
+			Log.Info( "You died" );
+
+			Transform.Position = playerSpawn.Transform.Position;
+			Transform.Rotation = playerSpawn.Transform.Rotation;
+
+			DeathSound();
 		}
-
-
-
-
-
 	}
 
 	protected override void OnPreRender()
@@ -234,7 +237,7 @@ public class PlayerPawn : Component
 	}
 
 	[Broadcast]
-	public void Death()
+	public void DeathSound()
 	{
 
 		Sound.PlayFile( SoundFile.Load( "sounds/kenney/ui/back_004.vsnd_c" ) );
