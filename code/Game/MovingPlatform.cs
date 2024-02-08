@@ -65,7 +65,14 @@ public sealed class MovingPlatform : Component, Component.ICollisionListener
 	}
 	protected override void OnUpdate()
 	{
-		Transform.Position = startPosition + Transform.Rotation.Forward * MathF.Sin( Time.Now * frequency + offset ) * magnitude;
+
+		if ( !IsProxy )
+		{
+			Transform.Position = startPosition + Transform.Rotation.Forward * MathF.Sin( Time.Now * frequency + offset ) * magnitude;
+
+		}
+
+		
 
 		
 		playerDist = 1- ((this.Transform.Position - playerPawn.Transform.Position).Length*0.002f);

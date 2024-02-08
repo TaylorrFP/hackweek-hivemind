@@ -1128,6 +1128,7 @@
           "localAltAngle": "0,0,0",
           "localViewAngle": "0,0,0",
           "MaxForce": 50,
+          "normalisedVelocity": "0,0,0",
           "pawnCamera": {
             "_type": "component",
             "go": "c8a7afd5-70a3-45ee-9a55-3c85e17ced23",
@@ -1292,6 +1293,6 @@
   },
   "Title": "testmap",
   "Description": "",
-  "LastSaved": "2024-02-07T19:32:11.950811\u002B00:00",
+  "LastSaved": "2024-02-08T01:11:58.340598\u002B00:00",
   "__references": []
 }

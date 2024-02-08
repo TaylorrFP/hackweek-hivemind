@@ -35,7 +35,13 @@ public class PlayerPawn : Component
 
 	[Property] Vector3 cameraTarget;
 
+	[Property] [Sync] public Vector3 normalisedVelocity { get; set; }
+
 	[Property] public CharacterController characterController;
+
+	public int forwardVelocity;
+	public int strafeVelocity;
+
 
 	// Movement Properties
 	[Property] public float GroundControl { get; set; } = 4.0f;
@@ -191,7 +197,11 @@ public class PlayerPawn : Component
 				Death();
 			}
 
-			
+
+		}
+		else
+		{
+			//BuildAverageVelocity();//do this on the client too for now?
 		}
 
 
@@ -235,7 +245,7 @@ public class PlayerPawn : Component
 
 		averageInputVelocity = Vector3.Zero;
 
-		var normalisedVelocity = Vector3.Zero;
+		normalisedVelocity = Vector3.Zero;
 
 		if ( playerControllers.Count > 0 )
 		{
@@ -285,6 +295,7 @@ public class PlayerPawn : Component
 			{
 				//if they don't match the votes - clear the input direction
 
+				normalisedVelocity = new Vector3( 0, normalisedVelocity.y, 0 );
 				averageInputVelocity = new Vector3( 0, averageInputVelocity.y, 0 );
 
 			}
@@ -292,12 +303,12 @@ public class PlayerPawn : Component
 
 			if ( leftCount < minVoteCount & rightCount < minVoteCount )
 			{
-
+				normalisedVelocity = new Vector3(normalisedVelocity.x, 0, 0 );
 				averageInputVelocity = new Vector3( averageInputVelocity.x, 0, 0 );
 
 			}
 
-
+			
 			averageInputVelocity = averageInputVelocity * averageMoveAngle* Speed;
 
 			

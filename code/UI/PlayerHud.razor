@@ -29,77 +29,143 @@
 
 
 
-    <div class="jumpbuttonholder">
-
-
-        @for (int i = 0; i < playerPawn.playerControllers.Count; i++)
-        {
-            @if (playerPawn.playerControllers[i].forwardInput == 1)
-            {
-                <div class="buttonoutline" style="border: @playerPawn.playerColours[i].Hex; height: @(124+ (24 * i))px;width: @(124+ (24 * i))px; bottom: @(32 + 12*(playerPawn.playerControllers.Count-i));border-radius:@(32+i*12);">
-                </div>
-
-
-            }
-
  
 
 
+
+    <div class="movementbuttonpanel">
+
+        <div class="movementbuttonrow">
+
+            @for (int i = 0; i < playerPawn.playerControllers.Count; i++)
+            {
+                @if (playerPawn.playerControllers[i].forwardInput == 1)
+                {
+                <div class="buttonoutline" style="border: @playerPawn.playerColours[i].Hex; height: @(92+(12 * i))px;width: @(92+(12 * i))px; left: 50%;transform: translate(-50%,0); bottom: @(32 + (playerPawn.playerControllers.Count*6) + 6*(playerPawn.playerControllers.Count-i));border-radius:@(16+i*6);">
+                </div>
+
+
+                }
+
+
+
+              
+
+            }
+            <div class="toprowbutton" style="bottom: @( 44+ (playerPawn.playerControllers.Count*6) + 6*(playerPawn.playerControllers.Count-1));">
+
+                @if (playerPawn.normalisedVelocity.x > 0)
+                {
+                    <p> ☝️ </p>
+                }
+                else
+                {
+
+                    <p> ⛔ </p>
+                }
+
+               
+
+            </div>
+
+
+
+        </div>
+        <div class="movementbuttonrow">
+
+
+            @for (int i = 0; i < playerPawn.playerControllers.Count; i++)
+            {
+                @if (playerPawn.playerControllers[i].strafeInput == 1)
+                {
+                    <div class="buttonoutline" style="border: @playerPawn.playerColours[i].Hex; height: @(92+(12 * i))px;width: @(92+(12 * i))px; left: 15%;transform: translate(-50%,0); bottom: @(32 + 6*(playerPawn.playerControllers.Count-i));border-radius:@(16+i*6);">
+                    </div>
+                }
+
+            }
+
+
+            <div class="toprowbutton" style="bottom: @( 44 + 6*(playerPawn.playerControllers.Count-1)); left: 15%;">
+
+                @if (playerPawn.normalisedVelocity.y > 0)
+                {
+                    <p> 👈 </p>
+                }
+                else
+                {
+
+                    <p> ⛔ </p>
+                }
+
+            </div>
+
+
+            @for (int i = 0; i < playerPawn.playerControllers.Count; i++)
+            {
+                @if (playerPawn.playerControllers[i].forwardInput == -1)
+                {
+
+                <div class="buttonoutline" style="border: @playerPawn.playerColours[i].Hex; height: @(92+(12 * i))px;width: @(92+(12 * i))px; left: 50%;transform: translate(-50%,0); bottom: @(32 + 6*(playerPawn.playerControllers.Count-i));border-radius:@(16+i*6);">
+                </div>
+                }
+
+            }
+
+            <div class="toprowbutton" style="bottom: @( 44 + 6*(playerPawn.playerControllers.Count-1)); left: 50%;">
+
+                @if (playerPawn.normalisedVelocity.x < 0)
+                {
+                    <p> 👇 </p>
+                }
+                else
+                {
+
+                    <p> ⛔ </p>
+                }
+
+            </div>
+
+
+            @for (int i = 0; i < playerPawn.playerControllers.Count; i++)
+            {
+                @if (playerPawn.playerControllers[i].strafeInput == -1)
+                {
+
+                    <div class="buttonoutline" style="border: @playerPawn.playerColours[i].Hex; height: @(92+(12 * i))px;width: @(92+(12 * i))px; left: 85%;transform: translate(-50%,0); bottom: @(32 + 6*(playerPawn.playerControllers.Count-i));border-radius:@(16+i*6);">                    </div>
+                }
+
+            }
+
+            <div class="toprowbutton" style="bottom: @( 44 + 6*(playerPawn.playerControllers.Count-1)); left: 85%;">
+                @if (playerPawn.normalisedVelocity.y < 0)
+                {
+                    <p> 👉 </p>
+                }
+                else
+                {
+
+                    <p> ⛔ </p>
+                }
+
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+  
         
 
 
 
-        }
 
-        <div class="movementbutton" style = "bottom: @(32 + 12*(playerPawn.playerControllers.Count+1));">
-
-            <p> 🦘 </p>
-
-        </div>
-
-
-
-
-    </div>
-
-
-
-    <div class="movementbuttonsholder">
-
-        <div class ="movementbuttons">
-
-            <div class="movementbutton">
-                <p> ☝️ </p>
-            </div>
-
-        </div>
-
-        <div class="movementbuttons">
-
-            <div class="movementbutton">
-                <p> 👈 </p>
-            </div>
-            <div class="movementbutton">
-                <p> 👇 </p>
-            </div>
-            <div class="movementbutton">
-                <p> 👉 </p>
-            </div>
-
-        </div>
-
-        <div class="bottomrowmovementholder">
-
-            <div class="bottomrowbutton">
-            </div>
-            <div class="bottomrowbutton">
-            </div>
-            <div class="bottomrowbutton">
-            </div>
-
-        </div>
-
-    </div>
+    
 	
 </root>
 
