@@ -7,7 +7,7 @@ public sealed class Mine : Component, Component.ITriggerListener
 	{
 
 
-			Log.Info( other );
+
 
 			var playerPawn = other.GameObject.Components.Get<PlayerPawn>();
 

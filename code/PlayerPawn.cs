@@ -56,7 +56,7 @@ public class PlayerPawn : Component
 	public bool IsSprinting = false;
 
 	Vector3 WishVelocity = Vector3.Zero;
-
+	bool hasJumped = false;
 
 
 
@@ -127,7 +127,19 @@ public class PlayerPawn : Component
 	protected override void OnUpdate()
 	{
 
+		//jumping code
 
+		if ( characterController.IsOnGround == true )
+		{
+			hasJumped = false;
+
+		}
+		if ( hasJumped != true & Input.Pressed( "Jump" ) )
+		{
+
+			jump();
+			hasJumped = true;
+		}
 
 
 
@@ -157,6 +169,15 @@ public class PlayerPawn : Component
 				localStrafeInput = playerControllers[i].strafeInput;
 				//var myViewDir = new Angles( 0, playerControllers[i].eyeAngle.yaw, 0 ); //get the angle of my view, we only want the pitch though
 
+				if ( Input.Pressed( "Jump" ) )
+				{
+					playerControllers[i].jumpTimer = 0.5f;
+
+				}
+
+
+
+				
 			}
 
 			
@@ -173,7 +194,21 @@ public class PlayerPawn : Component
 
 
 		cameraTarget = new Vector3( localForwardInput, localStrafeInput, 0f ).Normal * averageMoveAngle * 5;
-		
+
+
+
+
+
+	}
+
+	[Broadcast]
+	public void jump()
+	{
+		if ( !IsProxy )
+		{
+			
+			characterController.Punch( Vector3.Up * JumpForce/playerControllers.Count );
+		}
 
 
 	}

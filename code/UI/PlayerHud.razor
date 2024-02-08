@@ -27,7 +27,31 @@
     </div>
 
 
+    <div class="jumpbuttonholder">
 
+
+            @for (int i = 0; i < playerPawn.playerControllers.Count; i++)
+            {
+
+            @if (playerPawn.playerControllers[i].jumpTimer > 0.01f)
+            {
+                <div class="buttonoutline" style="border: @playerPawn.playerColours[i].Hex; height: @(112+(12 * i))px;width: @(112+(12 * i))px; left: 50%;transform: translate(-50%,0); bottom: @(32 + (playerPawn.playerControllers.Count*6) + 6*(playerPawn.playerControllers.Count-i));border-radius:@(16+i*6);">
+                </div>
+
+            }
+
+
+            }
+
+        <div class="movementbutton" style="bottom: @( 44+ (playerPawn.playerControllers.Count*6) + 6*(playerPawn.playerControllers.Count-1));">
+
+            <p> 🔼 </p>
+            </div>
+
+
+
+
+     </div>
 
  
 

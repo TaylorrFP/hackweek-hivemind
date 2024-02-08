@@ -1,5 +1,6 @@
 using Sandbox;
 using Sandbox.Citizen;
+using System;
 using System.Diagnostics;
 
 
@@ -8,11 +9,14 @@ using System.Diagnostics;
 public sealed class PlayerController : Component
 {
 
-	[Sync (Query = true)] public Angles eyeAngle { get; set; }
+	[Sync ] public Angles eyeAngle { get; set; }
 
 	[Property] [Sync] public int forwardInput { get; set; }
 	[Property] [Sync] public int strafeInput { get; set; }
 	[Property] public Angles altEyeAngle { get; set; }
+
+	[Property] [Sync] public float jumpTimer { get; set; } = 1f;
+
 
 	protected override void OnUpdate()
 	{
@@ -49,7 +53,8 @@ public sealed class PlayerController : Component
 				if ( Input.Down( "Right" ) ) strafeInput = -1;
 				if ( Input.Down( "Left" ) & Input.Down( "Right" ) ) strafeInput = 0;
 			}
-		
+
+			jumpTimer = MathX.Clamp( jumpTimer - Time.Delta, 0, 10 );
 
 		}
 
