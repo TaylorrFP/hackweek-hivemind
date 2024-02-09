@@ -1520,6 +1520,92 @@
             {
               "__type": "Highlight"
             }
+          ],
+          "Children": [
+            {
+              "Id": "ccbaca9e-4e98-48a1-b04c-cb379b049f82",
+              "Name": "ForwardSound",
+              "Position": "20,0,0",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "SoundPointComponent",
+                  "Force2d": false,
+                  "MaxRepeatTime": 1,
+                  "MinRepeatTime": 1,
+                  "Pitch": 1,
+                  "PlayOnStart": false,
+                  "Repeat": false,
+                  "SoundEvent": "assets/sounds/movementsounds.sound",
+                  "SoundOverride": true,
+                  "StopOnNew": false,
+                  "Volume": 1
+                }
+              ]
+            },
+            {
+              "Id": "41e2d085-5050-4ce3-9d1f-6288ee132787",
+              "Name": "BackwardSound",
+              "Position": "-20,0,0",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "SoundPointComponent",
+                  "Force2d": false,
+                  "MaxRepeatTime": 1,
+                  "MinRepeatTime": 1,
+                  "Pitch": 1,
+                  "PlayOnStart": false,
+                  "Repeat": false,
+                  "SoundEvent": "assets/sounds/movementsounds.sound",
+                  "SoundOverride": false,
+                  "StopOnNew": false,
+                  "Volume": 1
+                }
+              ]
+            },
+            {
+              "Id": "1bf375d6-bfdb-47d8-bf38-581bb8475a2f",
+              "Name": "LeftSound",
+              "Position": "0,20,0",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "SoundPointComponent",
+                  "Force2d": false,
+                  "MaxRepeatTime": 1,
+                  "MinRepeatTime": 1,
+                  "Pitch": 1,
+                  "PlayOnStart": false,
+                  "Repeat": false,
+                  "SoundEvent": "assets/sounds/movementsounds.sound",
+                  "SoundOverride": false,
+                  "StopOnNew": false,
+                  "Volume": 1
+                }
+              ]
+            },
+            {
+              "Id": "6a1525be-a56c-4ff2-971d-179871e0790e",
+              "Name": "RightSound",
+              "Position": "0,-20,0",
+              "Enabled": true,
+              "Components": [
+                {
+                  "__type": "SoundPointComponent",
+                  "Force2d": false,
+                  "MaxRepeatTime": 1,
+                  "MinRepeatTime": 1,
+                  "Pitch": 1,
+                  "PlayOnStart": false,
+                  "Repeat": false,
+                  "SoundEvent": "assets/sounds/movementsounds.sound",
+                  "SoundOverride": false,
+                  "StopOnNew": false,
+                  "Volume": 1
+                }
+              ]
+            }
           ]
         },
         {
@@ -1571,16 +1657,45 @@
           "averageInputVelocity": "0,0,0",
           "averageMoveAngle": "0,0,0",
           "averageViewVector": "0,0,0",
+          "backwardCount": 0,
+          "backwardSound": {
+            "_type": "gameobject",
+            "go": "41e2d085-5050-4ce3-9d1f-6288ee132787"
+          },
           "CrouchSpeed": 90,
+          "forwardCount": 0,
+          "forwardSound": {
+            "_type": "gameobject",
+            "go": "ccbaca9e-4e98-48a1-b04c-cb379b049f82"
+          },
+          "goSounds": "assets/sounds/gosound.sound",
           "GroundControl": 2.5,
           "headPosition": {
             "_type": "gameobject",
             "go": "ca732948-0455-44e4-9a67-cf28ee4b01e7"
           },
           "JumpForce": 400,
+          "jumpSounds": "assets/sounds/jumpsound.sound",
+          "leftCount": 0,
+          "leftSound": {
+            "_type": "gameobject",
+            "go": "1bf375d6-bfdb-47d8-bf38-581bb8475a2f"
+          },
           "localAltAngle": "0,0,0",
           "localViewAngle": "0,0,0",
           "MaxForce": 50,
+          "maxJumpPitch": 0.5,
+          "maxJumpVolume": 1,
+          "maxMovementPitch": 0.5,
+          "maxMovementVolume": 0.3,
+          "minJumpPitch": 0,
+          "minJumpVolume": 0.5,
+          "minMovementPitch": 0,
+          "minMovementVolume": 0.01,
+          "minVoteCount": 0,
+          "movementPitchOffset": 0.1,
+          "movementSounds": "assets/sounds/movementsounds.sound",
+          "nogoSounds": "assets/sounds/nomove.sound",
           "normalisedVelocity": "0,0,0",
           "pawnCamera": {
             "_type": "component",
@@ -1605,8 +1720,14 @@
             "_type": "gameobject",
             "go": "e76dee2a-ef85-4cee-875f-cc10ed950745"
           },
+          "rightCount": 0,
+          "rightSound": {
+            "_type": "gameobject",
+            "go": "6a1525be-a56c-4ff2-971d-179871e0790e"
+          },
           "RunSpeed": 290,
-          "Speed": 160
+          "Speed": 160,
+          "totalPlayers": 0
         },
         {
           "__type": "CapsuleCollider",
@@ -2308,6 +2429,6 @@
   },
   "Title": "testmap",
   "Description": "",
-  "LastSaved": "2024-02-08T14:58:21.618055\u002B00:00",
+  "LastSaved": "2024-02-09T19:07:32.2836133\u002B00:00",
   "__references": []
 }

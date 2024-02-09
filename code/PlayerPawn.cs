@@ -1,6 +1,7 @@
 ﻿using Sandbox;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 
 public class PlayerPawn : Component
@@ -39,9 +40,43 @@ public class PlayerPawn : Component
 
 	[Property] public CharacterController characterController;
 
-	public int forwardVelocity;
-	public int strafeVelocity;
+	[Property] public int forwardCount { get; set; } = 0;
+	[Property] public int backwardCount { get; set; } = 0;
+	[Property] public int leftCount { get; set; } = 0;
+	[Property] public int rightCount { get; set; } = 0;
 
+	[Property] public int totalPlayers { get; set; } = 0;
+
+	[Property] public int minVoteCount { get; set; } = 0;
+
+
+	
+	[Property] public GameObject forwardSound { get; set; }
+	[Property] public GameObject backwardSound { get; set; }
+	[Property] public GameObject leftSound { get; set; }
+	[Property] public GameObject rightSound { get; set; }
+
+	[Property] public SoundEvent movementSounds { get; set; }
+
+	[Property] public SoundEvent jumpSounds { get; set; }
+
+	[Property] public SoundEvent goSounds { get; set; }
+
+	[Property] public SoundEvent nogoSounds { get; set; }
+
+	[Property] public  float movementPitchOffset { get; set; } = 0.1f;
+	[Property] public float minMovementPitch { get; set; } = 0f;
+	[Property] public float maxMovementPitch { get; set; } = 0.5f;
+
+	[Property] public float minMovementVolume { get; set; } = 0.5f;
+	[Property] public float maxMovementVolume { get; set; } = 1f;
+
+	[Property] public float minJumpVolume { get; set; } = 0.5f;
+	[Property] public float maxJumpVolume { get; set; } = 1f;
+
+
+	[Property] public float minJumpPitch { get; set; } = 0.2f;
+	[Property] public float maxJumpPitch { get; set; } =1f;
 
 	// Movement Properties
 	[Property] public float GroundControl { get; set; } = 4.0f;
@@ -128,11 +163,9 @@ public class PlayerPawn : Component
 	{
 
 
-		//Log.Info( characterController.Velocity.Length );
+			//jumping code
 
-		//jumping code
-
-		if ( characterController.IsOnGround == true )
+			if ( characterController.IsOnGround == true )
 		{
 			hasJumped = false;
 
@@ -142,28 +175,28 @@ public class PlayerPawn : Component
 
 			jump();
 			hasJumped = true;
+
+
 		}
 
+		BuildViewDirection();
 
+	}
 
+	private void BuildViewDirection()
+	{
 		averageMoveAngle = Angles.Zero;
 		averageViewVector = Vector3.Zero;
 		var localForwardInput = 0f;
 		var localStrafeInput = 0f;
-		
+
 
 		for ( int i = 0; i < playerControllers.Count; i++ )
 		{
-
-			
-
-
 			averageViewVector += playerControllers[i].eyeAngle.Forward;
 
 			if ( playerControllers[i].Network.IsOwner )//if this controller is one we own
 			{
-				
-
 				localAltAngle = playerControllers[i].altEyeAngle;
 				localViewAngle = playerControllers[i].eyeAngle;
 
@@ -177,31 +210,11 @@ public class PlayerPawn : Component
 					playerControllers[i].jumpTimer = 0.5f;
 
 				}
-
-
-
-				
 			}
-
-			
-
-
 		}
-
 		averageViewVector = averageViewVector.Normal;
-		averageMoveAngle = new Angles(0, Rotation.LookAt( averageViewVector ).Angles().yaw,0);
-
-
-
-
-
-
+		averageMoveAngle = new Angles( 0, Rotation.LookAt( averageViewVector ).Angles().yaw, 0 );
 		cameraTarget = new Vector3( localForwardInput, localStrafeInput, 0f ).Normal * averageMoveAngle * 5;
-
-
-
-
-
 	}
 
 	[Broadcast]
@@ -209,19 +222,65 @@ public class PlayerPawn : Component
 	{
 		if ( !IsProxy )
 		{
+
+			if ( characterController.Velocity.z<0f )//if we're falling
+			{
 			
-			characterController.Punch( Vector3.Up * JumpForce/playerControllers.Count );
+				characterController.Velocity = new Vector3( characterController.Velocity.x, characterController.Velocity.y,0 );
+				characterController.Punch( Vector3.Up * JumpForce / playerControllers.Count );
+			}
+			else
+			{
+
+				characterController.Punch( Vector3.Up * JumpForce / playerControllers.Count );
+			}
+
+			
+			
 		}
 
+		Log.Info( "jumped" );
+		var pitch = 0.3f;
+		var numJumpers = 0;
+		var volume = 1f;
+
+
+		for ( int i = 0; i < playerControllers.Count; i++ )
+		{
+
+			if ( playerControllers[i].jumpTimer > 0.01f )
+			{
+				numJumpers++;
+
+			}
+
+
+
+		}
+
+
+
+		pitch = MathX.Lerp( minJumpPitch, maxJumpPitch, numJumpers * 1.0f / totalPlayers * 1.0f );
+		volume = MathX.Lerp( minJumpVolume, maxJumpVolume, numJumpers * 1.0f / totalPlayers * 1.0f );
+
+		jumpSounds.Pitch = pitch;
+		jumpSounds.Volume = volume;
+		Log.Info( jumpSounds.Volume );
+		Log.Info( jumpSounds.Pitch );
+
+		//Sound.Play( jumpSounds, this.Transform.Position ); //WHY DOESN'T THIS WORK ON CLIENT??
+		Sound.PlayFile( SoundFile.Load( "sounds/kenney/ui/drop_004.vsnd" ),volume,pitch );
 
 	}
 
 	protected override void OnFixedUpdate()
 	{
+		BuildAverageVelocity();
+
 		if ( !IsProxy )
 		{
 
-			BuildAverageVelocity();
+			
 			Move();
 
 			if ( Transform.Position.z < -500f )
@@ -289,8 +348,8 @@ public class PlayerPawn : Component
 
 		if ( playerControllers.Count > 0 )
 		{
-			var totalPlayers = playerControllers.Count;
-			var minVoteCount = (playerControllers.Count + 1) / 2;//set minVoteCount
+			totalPlayers = playerControllers.Count;
+			minVoteCount = (playerControllers.Count + 1) / 2;//set minVoteCount
 
 
 
@@ -300,10 +359,10 @@ public class PlayerPawn : Component
 			}
 
 
-			var forwardCount = 0;
-			var backwardCount = 0;
-			var leftCount = 0;
-			var rightCount = 0;
+			var tempforwardCount = 0;
+			var tempbackwardCount = 0;
+			var templeftCount = 0;
+			var temprightCount = 0;
 
 			for ( int i = 0; i < playerControllers.Count; i++ )
 			{
@@ -312,23 +371,139 @@ public class PlayerPawn : Component
 				switch (playerControllers[i].forwardInput )
 				{
 					case 1:
-						forwardCount++;break;
+						tempforwardCount++;break;
 					case -1:
-						backwardCount++;break;
+						tempbackwardCount++;break;
 
 				}
 				switch ( playerControllers[i].strafeInput )
 				{
 					case 1:
-						leftCount++; break;
+						templeftCount++; break;
 					case -1:
-						rightCount++; break;
+						temprightCount++; break;
+
+				}
+			}
+			var pitch = 0f;
+			var volume = 0f;
+
+
+			if ( tempforwardCount != forwardCount )
+			{
+				forwardCount = tempforwardCount;
+
+
+				
+
+
+				if ( forwardCount == 0 )
+				{
+					Sound.PlayFile( SoundFile.Load( "sounds/kenney/ui/bong_001.vsnd" ), 0.2f, 0.4f );
+				}
+				else
+				{
+
+					
+						pitch = MathX.Lerp( minMovementPitch, maxMovementPitch, forwardCount*1.0f / totalPlayers*1.0f );
+						volume = MathX.Lerp( minMovementVolume, maxMovementVolume, forwardCount * 1.0f / totalPlayers * 1.0f );
+						pitch += movementPitchOffset * 2;
+						movementSounds.Pitch = pitch;
+						movementSounds.Volume = volume;
+						Sound.Play( movementSounds, forwardSound.Transform.Position );
+						Sound.PlayFile( SoundFile.Load( "sounds/kenney/ui/drop_003.vsnd" ), volume, pitch );
+
+
+
+
 
 				}
 			}
 
+			if ( tempbackwardCount != backwardCount )
+			{
+				backwardCount = tempbackwardCount;
+
+				if ( backwardCount == 0 )
+				{
+					Sound.PlayFile( SoundFile.Load( "sounds/kenney/ui/bong_001.vsnd" ), 0.2f, 0.4f );
+				}
+				else
+				{
+
+					pitch = MathX.Lerp( minMovementPitch, maxMovementPitch, backwardCount * 1.0f / totalPlayers * 1.0f );
+					volume = MathX.Lerp( minMovementVolume, maxMovementVolume, backwardCount * 1.0f / totalPlayers * 1.0f );
+					movementSounds.Pitch = pitch;
+					movementSounds.Volume = volume;
+					Sound.PlayFile( SoundFile.Load( "sounds/kenney/ui/drop_003.vsnd" ), volume, pitch );
+
+				}
+
+
+
+
+			}
+			if ( templeftCount != leftCount )
+			{
+
+
+
+
+				leftCount = templeftCount;
+				if ( leftCount == 0 )
+				{
+					Sound.PlayFile( SoundFile.Load( "sounds/kenney/ui/bong_001.vsnd" ), 0.2f, 0.4f );
+				}
+				else
+				{
+
+						pitch = MathX.Lerp( minMovementPitch, maxMovementPitch, leftCount * 1.0f / totalPlayers * 1.0f );
+						volume = MathX.Lerp( minMovementVolume, maxMovementVolume, leftCount * 1.0f / totalPlayers * 1.0f );
+						pitch += movementPitchOffset;
+						movementSounds.Pitch = pitch;
+						movementSounds.Volume = volume;
+						Sound.PlayFile( SoundFile.Load( "sounds/kenney/ui/drop_003.vsnd" ), volume, pitch );
+
+
+
+
+				}
+
+
+			}
+			if ( temprightCount != rightCount )
+			{
+				
+				rightCount = temprightCount;
+				if ( rightCount == 0 )
+				{
+					//Sound.Play( nogoSounds, backwardSound.Transform.Position );
+					Sound.PlayFile( SoundFile.Load( "sounds/kenney/ui/bong_001.vsnd"), 0.2f,0.4f );
+				}
+				else
+				{
+
+
+
+					
+						pitch = MathX.Lerp( minMovementPitch, maxMovementPitch, rightCount * 1.0f / totalPlayers * 1.0f );
+						volume = MathX.Lerp( minMovementVolume, maxMovementVolume, rightCount * 1.0f / totalPlayers * 1.0f );
+						pitch += movementPitchOffset;
+						movementSounds.Pitch = pitch;
+						movementSounds.Volume = volume;
+						Sound.PlayFile( SoundFile.Load( "sounds/kenney/ui/drop_003.vsnd" ), volume, pitch );
+
+
+
+				}
+
+
+
+
+			}
+
 			if ( forwardCount >= minVoteCount )
-			{averageInputVelocity = new Vector3 (forwardCount/totalPlayers, averageInputVelocity.y, 0);}
+			{averageInputVelocity = new Vector3 (forwardCount /totalPlayers, averageInputVelocity.y, 0);}
 			if ( backwardCount >= minVoteCount )
 			{averageInputVelocity = new Vector3( -backwardCount / totalPlayers, averageInputVelocity.y, 0 );}
 			if ( leftCount >= minVoteCount )
@@ -410,6 +585,8 @@ public class PlayerPawn : Component
 
 
 			playerCursors.Add( cursorGO );
+
+			totalPlayers = playerCursors.Count;
 		}
 		
 	}
