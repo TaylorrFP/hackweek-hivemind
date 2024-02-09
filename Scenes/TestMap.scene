@@ -4,7 +4,7 @@
     {
       "Id": "0857bd9d-ec6c-48b2-8754-cf82a23ac9cb",
       "Name": "Floor",
-      "Position": "-339.2382,0,0",
+      "Position": "-839.4802,0,0",
       "Enabled": true,
       "Components": [
         {
@@ -68,7 +68,7 @@
     {
       "Id": "f01aae0a-fd9c-4d22-8b6a-f641e7f4ba34",
       "Name": "Cube",
-      "Position": "-577.5138,3.310188,21.2016",
+      "Position": "-577.5138,3.310188,24.62612",
       "Tags": "deadly",
       "Enabled": true,
       "Components": [
@@ -94,7 +94,7 @@
         {
           "Id": "c33fdb85-a8f9-4805-8938-c075d30eae08",
           "Name": "Object",
-          "Position": "-26.68629,0,5.785261",
+          "Position": "-26.68628,0,1.263426",
           "Enabled": true,
           "Components": [
             {
@@ -103,7 +103,7 @@
               "FontFamily": "Poppins",
               "FontSize": 73.85,
               "Scale": 0.03,
-              "Text": "Everyone Controls the Player\n\nWASD only works if the\nmajority hold down the button\n\nThe player moves in the direction of\nyour average view (white reticule)\n\nYou can alt-look but you can\u0027t\ncontribute to movement while doing so"
+              "Text": "Everyone Controls the Player\n\nWASD only works if the\nmajority hold down the button\n\nThe player moves in the direction of\nyour average view (white reticule)\n\nYou can trigger a jump by yourself\nbut it\u0027s weak unless you combine\nthem\n\nYou can alt-look but you can\u0027t\ncontribute to movement while doing so"
             }
           ]
         }
@@ -112,7 +112,7 @@
     {
       "Id": "f651839d-ab1a-4fa8-bc5b-056342957852",
       "Name": "Cube (1)",
-      "Position": "-625.8212,-95.16063,21.20145",
+      "Position": "-625.8212,-112.7591,21.20145",
       "Tags": "deadly",
       "Enabled": true,
       "Components": [
@@ -138,7 +138,7 @@
     {
       "Id": "472cb595-3e89-4b51-be44-ba95bb243094",
       "Name": "Cube (3)",
-      "Position": "-486.5682,-90.83873,21.20184",
+      "Position": "-486.5682,-99.58644,21.20184",
       "Tags": "deadly",
       "Enabled": true,
       "Components": [
@@ -1106,7 +1106,7 @@
     {
       "Id": "5b5dd6ed-1b05-475d-980b-350981343f14",
       "Name": "Cube (2)",
-      "Position": "-563.0504,120.7045,21.20143",
+      "Position": "-646.1882,120.7045,21.20143",
       "Tags": "deadly",
       "Enabled": true,
       "Components": [
@@ -1132,7 +1132,7 @@
     {
       "Id": "362901ee-9812-416e-b24c-937378083c46",
       "Name": "Cube (22)",
-      "Position": "-430.6925,53.04819,21.20156",
+      "Position": "-458.7309,101.3825,21.20156",
       "Tags": "deadly",
       "Enabled": true,
       "Components": [
@@ -1185,8 +1185,8 @@
     {
       "Id": "18affeea-233f-4340-af2c-62212305dce9",
       "Name": "Cube (5)",
-      "Position": "709.204,32,-22.84361",
-      "Scale": "2.791691,7.440682,1",
+      "Position": "465.3211,23.71582,-22.84361",
+      "Scale": "12.50989,11.70057,1",
       "Tags": "deadly",
       "Enabled": true,
       "Components": [
@@ -1723,402 +1723,9 @@
       ]
     },
     {
-      "Id": "da07c81c-7619-4925-895d-f405e710bb6a",
-      "Name": "Sphere",
-      "Position": "-231.3231,67.29451,12.60766",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "ModelRenderer",
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
-          "MaterialOverride": "materials/dev/red.vmat",
-          "Model": "models/dev/sphere.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "SphereCollider",
-          "Center": "0,0,0",
-          "IsTrigger": true,
-          "Radius": 32.800133,
-          "Static": false,
-          "Surface": null
-        },
-        {
-          "__type": "Mine"
-        }
-      ]
-    },
-    {
-      "Id": "67dddb5f-a22b-4a18-ab26-c4d412d134d7",
-      "Name": "Sphere (1)",
-      "Position": "-308.8331,-19.08612,12.60765",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "ModelRenderer",
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
-          "MaterialOverride": "materials/dev/red.vmat",
-          "Model": "models/dev/sphere.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "SphereCollider",
-          "Center": "0,0,0",
-          "IsTrigger": true,
-          "Radius": 32.800133,
-          "Static": false,
-          "Surface": null
-        },
-        {
-          "__type": "Mine"
-        }
-      ]
-    },
-    {
-      "Id": "d37c21d3-9c7d-446a-965c-ff0c88bbc044",
-      "Name": "Sphere (2)",
-      "Position": "-391.8647,-140.0803,1.458858",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "ModelRenderer",
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
-          "MaterialOverride": "materials/dev/red.vmat",
-          "Model": "models/dev/sphere.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "SphereCollider",
-          "Center": "0,0,0",
-          "IsTrigger": true,
-          "Radius": 32.800133,
-          "Static": false,
-          "Surface": null
-        },
-        {
-          "__type": "Mine",
-          "__enabled": false
-        }
-      ]
-    },
-    {
-      "Id": "28acfbd4-9fcb-418c-9f41-75a44793e614",
-      "Name": "Sphere (3)",
-      "Position": "-193.2948,-56.47534,12.60762",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "ModelRenderer",
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
-          "MaterialOverride": "materials/dev/red.vmat",
-          "Model": "models/dev/sphere.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "SphereCollider",
-          "Center": "0,0,0",
-          "IsTrigger": true,
-          "Radius": 32.800133,
-          "Static": false,
-          "Surface": null
-        },
-        {
-          "__type": "Mine"
-        }
-      ]
-    },
-    {
-      "Id": "acf85060-307c-4ec7-b3fa-4cd67b8c98b9",
-      "Name": "Sphere (4)",
-      "Position": "-344.6269,112.7196,12.60761",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "ModelRenderer",
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
-          "MaterialOverride": "materials/dev/red.vmat",
-          "Model": "models/dev/sphere.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "SphereCollider",
-          "Center": "0,0,0",
-          "IsTrigger": true,
-          "Radius": 32.800133,
-          "Static": false,
-          "Surface": null
-        },
-        {
-          "__type": "Mine"
-        }
-      ]
-    },
-    {
-      "Id": "97057824-3260-459e-b7d2-717211e2ddb4",
-      "Name": "Sphere (5)",
-      "Position": "-219.3441,165.6702,12.60761",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "ModelRenderer",
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
-          "MaterialOverride": "materials/dev/red.vmat",
-          "Model": "models/dev/sphere.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "SphereCollider",
-          "Center": "0,0,0",
-          "IsTrigger": true,
-          "Radius": 32.800133,
-          "Static": false,
-          "Surface": null
-        },
-        {
-          "__type": "Mine"
-        }
-      ]
-    },
-    {
-      "Id": "691c91d9-163e-4bd7-b5a6-7e202f7a832d",
-      "Name": "Sphere (6)",
-      "Position": "-287.0332,-190.9494,12.60762",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "ModelRenderer",
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
-          "MaterialOverride": "materials/dev/red.vmat",
-          "Model": "models/dev/sphere.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "SphereCollider",
-          "Center": "0,0,0",
-          "IsTrigger": true,
-          "Radius": 32.800133,
-          "Static": false,
-          "Surface": null
-        },
-        {
-          "__type": "Mine"
-        }
-      ]
-    },
-    {
-      "Id": "f9d355cf-5a34-4a88-8bdb-07f0da4fbc83",
-      "Name": "Sphere (7)",
-      "Position": "-104.9208,-133.7123,12.60763",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "ModelRenderer",
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
-          "MaterialOverride": "materials/dev/red.vmat",
-          "Model": "models/dev/sphere.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "SphereCollider",
-          "Center": "0,0,0",
-          "IsTrigger": true,
-          "Radius": 32.800133,
-          "Static": false,
-          "Surface": null
-        },
-        {
-          "__type": "Mine"
-        }
-      ]
-    },
-    {
-      "Id": "dccbdb3f-1ea0-4c08-9beb-7a49d2514019",
-      "Name": "Sphere (8)",
-      "Position": "-92.71395,47.14323,12.60763",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "ModelRenderer",
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
-          "MaterialOverride": "materials/dev/red.vmat",
-          "Model": "models/dev/sphere.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "SphereCollider",
-          "Center": "0,0,0",
-          "IsTrigger": true,
-          "Radius": 32.800133,
-          "Static": false,
-          "Surface": null
-        },
-        {
-          "__type": "Mine"
-        }
-      ]
-    },
-    {
-      "Id": "062661f8-ee48-4ebf-89dc-f627aa46bba4",
-      "Name": "Sphere (9)",
-      "Position": "1.059395,-23.5197,12.60764",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "ModelRenderer",
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
-          "MaterialOverride": "materials/dev/red.vmat",
-          "Model": "models/dev/sphere.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "SphereCollider",
-          "Center": "0,0,0",
-          "IsTrigger": true,
-          "Radius": 32.800133,
-          "Static": false,
-          "Surface": null
-        },
-        {
-          "__type": "Mine"
-        }
-      ]
-    },
-    {
-      "Id": "ac78c204-5c92-4d8e-a61e-2304cfef2a24",
-      "Name": "Sphere (10)",
-      "Position": "-3.531814,126.1181,12.60764",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "ModelRenderer",
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
-          "MaterialOverride": "materials/dev/red.vmat",
-          "Model": "models/dev/sphere.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "SphereCollider",
-          "Center": "0,0,0",
-          "IsTrigger": true,
-          "Radius": 32.800133,
-          "Static": false,
-          "Surface": null
-        },
-        {
-          "__type": "Mine"
-        }
-      ]
-    },
-    {
-      "Id": "49cc0fb8-4040-463d-ae9b-a0ef2bff77d7",
-      "Name": "Sphere (11)",
-      "Position": "-0.9312279,-152.7041,12.60764",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "ModelRenderer",
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
-          "MaterialOverride": "materials/dev/red.vmat",
-          "Model": "models/dev/sphere.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "SphereCollider",
-          "Center": "0,0,0",
-          "IsTrigger": true,
-          "Radius": 32.800133,
-          "Static": false,
-          "Surface": null
-        },
-        {
-          "__type": "Mine"
-        }
-      ]
-    },
-    {
-      "Id": "0ad678e5-a435-449d-99ef-e70ca1b83833",
-      "Name": "Sphere (12)",
-      "Position": "-131.4362,-206.8967,12.60763",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "ModelRenderer",
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
-          "MaterialOverride": "materials/dev/red.vmat",
-          "Model": "models/dev/sphere.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "SphereCollider",
-          "Center": "0,0,0",
-          "IsTrigger": true,
-          "Radius": 32.800133,
-          "Static": false,
-          "Surface": null
-        },
-        {
-          "__type": "Mine"
-        }
-      ]
-    },
-    {
-      "Id": "555fa69d-7263-45f3-88ae-52e51c2ebc8c",
-      "Name": "Sphere (13)",
-      "Position": "-61.27409,192.9633,12.60754",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "ModelRenderer",
-          "BodyGroups": 18446744073709551615,
-          "MaterialGroup": null,
-          "MaterialOverride": "materials/dev/red.vmat",
-          "Model": "models/dev/sphere.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        },
-        {
-          "__type": "SphereCollider",
-          "Center": "0,0,0",
-          "IsTrigger": true,
-          "Radius": 32.800133,
-          "Static": false,
-          "Surface": null
-        },
-        {
-          "__type": "Mine"
-        }
-      ]
-    },
-    {
       "Id": "3a30df7c-8cc9-44fa-9cf6-74cecfcb7551",
       "Name": "Cube",
-      "Position": "160,32,0",
+      "Position": "-318.6883,32,22.04862",
       "Scale": "1.800091,3.160388,1",
       "Enabled": true,
       "Components": [
@@ -2144,7 +1751,7 @@
     {
       "Id": "be8f4752-002b-468b-8028-f315a1d5e777",
       "Name": "Cube (6)",
-      "Position": "224,32,32",
+      "Position": "-254.6883,32,54.04861",
       "Scale": "1.800091,3.160388,1.464839",
       "Enabled": true,
       "Components": [
@@ -2170,7 +1777,7 @@
     {
       "Id": "04eac7a6-cf9e-4c0e-bf85-5490319fa28f",
       "Name": "Cube (7)",
-      "Position": "448,32,32",
+      "Position": "-30.68826,32,32",
       "Scale": "2.416846,3.160388,1",
       "Enabled": true,
       "Components": [
@@ -2190,6 +1797,490 @@
           "Scale": "50,50,50",
           "Static": false,
           "Surface": null
+        }
+      ]
+    },
+    {
+      "Id": "55eb42f2-6c51-4aa5-9dbd-478b5f89dcd5",
+      "Name": "Mines",
+      "Position": "424.1292,-56.47534,12.60762",
+      "Enabled": true,
+      "Children": [
+        {
+          "Id": "555fa69d-7263-45f3-88ae-52e51c2ebc8c",
+          "Name": "Sphere (13)",
+          "Position": "96.70135,281.1102,-0.00008201599",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/red.vmat",
+              "Model": "models/dev/sphere.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "SphereCollider",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Radius": 32.800133,
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "Mine"
+            }
+          ]
+        },
+        {
+          "Id": "da07c81c-7619-4925-895d-f405e710bb6a",
+          "Name": "Sphere",
+          "Position": "-38.02831,123.7699,0.00004005432",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/red.vmat",
+              "Model": "models/dev/sphere.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "SphereCollider",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Radius": 32.800133,
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "Mine"
+            }
+          ]
+        },
+        {
+          "Id": "67dddb5f-a22b-4a18-ab26-c4d412d134d7",
+          "Name": "Sphere (1)",
+          "Position": "-115.5383,37.38922,0.0000295639",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/red.vmat",
+              "Model": "models/dev/sphere.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "SphereCollider",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Radius": 32.800133,
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "Mine"
+            }
+          ]
+        },
+        {
+          "Id": "28acfbd4-9fcb-418c-9f41-75a44793e614",
+          "Name": "Sphere (3)",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/red.vmat",
+              "Model": "models/dev/sphere.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "SphereCollider",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Radius": 32.800133,
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "Mine"
+            }
+          ]
+        },
+        {
+          "Id": "acf85060-307c-4ec7-b3fa-4cd67b8c98b9",
+          "Name": "Sphere (4)",
+          "Position": "-151.3321,169.1949,-0.00001049042",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/red.vmat",
+              "Model": "models/dev/sphere.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "SphereCollider",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Radius": 32.800133,
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "Mine"
+            }
+          ]
+        },
+        {
+          "Id": "97057824-3260-459e-b7d2-717211e2ddb4",
+          "Name": "Sphere (5)",
+          "Position": "-9.475433,239.1004,-0.000009536743",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/red.vmat",
+              "Model": "models/dev/sphere.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "SphereCollider",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Radius": 32.800133,
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "Mine"
+            }
+          ]
+        },
+        {
+          "Id": "8e80cc9a-3f08-4141-96f0-da75983eadbe",
+          "Name": "Sphere (5)",
+          "Position": "-64.31888,334.6183,-0.00001239777",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/red.vmat",
+              "Model": "models/dev/sphere.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "SphereCollider",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Radius": 32.800133,
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "Mine"
+            }
+          ]
+        },
+        {
+          "Id": "691c91d9-163e-4bd7-b5a6-7e202f7a832d",
+          "Name": "Sphere (6)",
+          "Position": "-62.08725,-134.4741,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/red.vmat",
+              "Model": "models/dev/sphere.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "SphereCollider",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Radius": 32.800133,
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "Mine"
+            }
+          ]
+        },
+        {
+          "Id": "d51813e0-f537-4f8e-8842-45280e06f406",
+          "Name": "Sphere (6)",
+          "Position": "-181.9486,-120.4648,-0.00000667572",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/red.vmat",
+              "Model": "models/dev/sphere.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "SphereCollider",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Radius": 32.800133,
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "Mine"
+            }
+          ]
+        },
+        {
+          "Id": "f9d355cf-5a34-4a88-8bdb-07f0da4fbc83",
+          "Name": "Sphere (7)",
+          "Position": "118.2786,-57.97704,0.00001144409",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/red.vmat",
+              "Model": "models/dev/sphere.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "SphereCollider",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Radius": 32.800133,
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "Mine"
+            }
+          ]
+        },
+        {
+          "Id": "dccbdb3f-1ea0-4c08-9beb-7a49d2514019",
+          "Name": "Sphere (8)",
+          "Position": "100.5808,103.6186,0.000009536743",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/red.vmat",
+              "Model": "models/dev/sphere.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "SphereCollider",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Radius": 32.800133,
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "Mine"
+            }
+          ]
+        },
+        {
+          "Id": "062661f8-ee48-4ebf-89dc-f627aa46bba4",
+          "Name": "Sphere (9)",
+          "Position": "194.3542,32.95564,0.00002002716",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/red.vmat",
+              "Model": "models/dev/sphere.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "SphereCollider",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Radius": 32.800133,
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "Mine"
+            }
+          ]
+        },
+        {
+          "Id": "97c42f70-b71d-499f-b645-f47190b2f820",
+          "Name": "Sphere (9)",
+          "Position": "292.9495,94.13113,0.0001535416",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/red.vmat",
+              "Model": "models/dev/sphere.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "SphereCollider",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Radius": 32.800133,
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "Mine"
+            }
+          ]
+        },
+        {
+          "Id": "ac78c204-5c92-4d8e-a61e-2304cfef2a24",
+          "Name": "Sphere (10)",
+          "Position": "189.763,182.5934,0.00002002716",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/red.vmat",
+              "Model": "models/dev/sphere.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "SphereCollider",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Radius": 32.800133,
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "Mine"
+            }
+          ]
+        },
+        {
+          "Id": "87a027ce-095f-4cad-bc8a-512446b8437c",
+          "Name": "Sphere (10)",
+          "Position": "264.2005,290.5667,0.00002479553",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/red.vmat",
+              "Model": "models/dev/sphere.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "SphereCollider",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Radius": 32.800133,
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "Mine"
+            }
+          ]
+        },
+        {
+          "Id": "49cc0fb8-4040-463d-ae9b-a0ef2bff77d7",
+          "Name": "Sphere (11)",
+          "Position": "239.5493,-143.5305,-0.00008583069",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/red.vmat",
+              "Model": "models/dev/sphere.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "SphereCollider",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Radius": 32.800133,
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "Mine"
+            }
+          ]
+        },
+        {
+          "Id": "0ad678e5-a435-449d-99ef-e70ca1b83833",
+          "Name": "Sphere (12)",
+          "Position": "61.85858,-161.1118,0.000009536743",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "ModelRenderer",
+              "BodyGroups": 18446744073709551615,
+              "MaterialGroup": null,
+              "MaterialOverride": "materials/dev/red.vmat",
+              "Model": "models/dev/sphere.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1"
+            },
+            {
+              "__type": "SphereCollider",
+              "Center": "0,0,0",
+              "IsTrigger": true,
+              "Radius": 32.800133,
+              "Static": false,
+              "Surface": null
+            },
+            {
+              "__type": "Mine"
+            }
+          ]
         }
       ]
     }
@@ -2217,6 +2308,6 @@
   },
   "Title": "testmap",
   "Description": "",
-  "LastSaved": "2024-02-08T14:15:31.0672219\u002B00:00",
+  "LastSaved": "2024-02-08T14:58:21.618055\u002B00:00",
   "__references": []
 }

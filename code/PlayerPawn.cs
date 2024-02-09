@@ -58,7 +58,7 @@ public class PlayerPawn : Component
 	Vector3 WishVelocity = Vector3.Zero;
 	bool hasJumped = false;
 
-
+	//Vector3 Position
 
 	void Shuffle<T>( NetList<T> inputList )
 	{
@@ -126,6 +126,9 @@ public class PlayerPawn : Component
 
 	protected override void OnUpdate()
 	{
+
+
+		//Log.Info( characterController.Velocity.Length );
 
 		//jumping code
 
@@ -282,18 +285,18 @@ public class PlayerPawn : Component
 	{
 
 		averageInputVelocity = Vector3.Zero;
-
 		normalisedVelocity = Vector3.Zero;
 
 		if ( playerControllers.Count > 0 )
 		{
 			var totalPlayers = playerControllers.Count;
+			var minVoteCount = (playerControllers.Count + 1) / 2;//set minVoteCount
 
-			var minVoteCount = (playerControllers.Count + 1) / 2;
 
-			if ( playerControllers.Count < 3 )
+
+			if ( playerControllers.Count < 3 )//if there are only two require them both to vote, or one player doesn't need to vote
 			{
-				minVoteCount = totalPlayers;//if there are only two require them both to vote, or one player doesn't need to vote
+				minVoteCount = totalPlayers;
 			}
 
 
@@ -305,7 +308,7 @@ public class PlayerPawn : Component
 			for ( int i = 0; i < playerControllers.Count; i++ )
 			{
 
-				//first go through and add up all the votes
+				//first go through and add up all the votes and add them to their respective counts
 				switch (playerControllers[i].forwardInput )
 				{
 					case 1:
@@ -322,40 +325,24 @@ public class PlayerPawn : Component
 						rightCount++; break;
 
 				}
-
-				normalisedVelocity = new Vector3( playerControllers[i].forwardInput, playerControllers[i].strafeInput, 0 ).Normal;//normalise the vector accounting for diagonals
-				averageInputVelocity += normalisedVelocity;//add the normalised vector to average inputVelocity
-				averageInputVelocity = averageInputVelocity/ totalPlayers;
 			}
 
+			if ( forwardCount >= minVoteCount )
+			{averageInputVelocity = new Vector3 (forwardCount/totalPlayers, averageInputVelocity.y, 0);}
+			if ( backwardCount >= minVoteCount )
+			{averageInputVelocity = new Vector3( -backwardCount / totalPlayers, averageInputVelocity.y, 0 );}
+			if ( leftCount >= minVoteCount )
+			{averageInputVelocity = new Vector3( averageInputVelocity.x, leftCount / totalPlayers, 0 );}
+			if ( rightCount >= minVoteCount )
+			{averageInputVelocity = new Vector3( averageInputVelocity.x, -rightCount / totalPlayers, 0 );}
 
-			if ( forwardCount < minVoteCount & backwardCount < minVoteCount)
-			{
-				//if they don't match the votes - clear the input direction
-
-				normalisedVelocity = new Vector3( 0, normalisedVelocity.y, 0 );
-				averageInputVelocity = new Vector3( 0, averageInputVelocity.y, 0 );
-
-			}
-
-
-			if ( leftCount < minVoteCount & rightCount < minVoteCount )
-			{
-				normalisedVelocity = new Vector3(normalisedVelocity.x, 0, 0 );
-				averageInputVelocity = new Vector3( averageInputVelocity.x, 0, 0 );
-
-			}
-
-			
-			averageInputVelocity = averageInputVelocity * averageMoveAngle* Speed;
+			averageInputVelocity = averageInputVelocity.Normal * averageMoveAngle * Speed;
 
 			
 
 
 
 		}
-
-		//Log.Info( "Average Input Velocity: " + averageInputVelocity );
 	}
 
 	void Move()
